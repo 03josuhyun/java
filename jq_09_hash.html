@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"></script>
+  <script>
+    $(function () {
+      $('.gnb ul li a').click(function (e) {
+        e.preventDefault();
+        $(window).scrollTo(this.hash || 0, 1000);
+      });
+    });//jqurey
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    /*----------------------------------------------*/
+    .gnb {
+      width: 100%;
+      height: 30px;
+      background-color: lightcyan;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .gnb ul {
+      width: 1070px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .gnb ul li {
+      width: 25%;
+      float: left;
+    }
+
+    .gnb ul li a {
+      display: block;
+      line-height: 30px;
+      text-align: center;
+      color: blue;
+    }
+
+    .gnb ul li a:active {
+      color: orangered;
+      font-weight: bolder;
+    }
+
+    .pages div {
+      width: 100%;
+      height: 100vh;
+      box-sizing: border-box;
+      font-size: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="gnb">
+    <ul>
+      <li><a href="#page01">menu01</a></li>
+      <li><a href="#page02">menu02</a></li>
+      <li><a href="#page03">menu03</a></li>
+      <li><a href="#page04">menu04</a></li>
+    </ul>
+
+  </nav>
+  <section class="pages">
+    <div id="page01">page01</div>
+    <div id="page02">page02</div>
+    <div id="page03">page03</div>
+    <div id="page04">page04</div>
+  </section>
+</body>
+
+</html>

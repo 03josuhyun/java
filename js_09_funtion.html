@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script>
+    /*
+    let num =0;
+    function myFunc() {
+      num++;
+      document.write('hello , javascript!'+num,'<br>');
+    } //함수정의
+
+    //myFunc();
+    for(let i=1;i<=10;i++){
+      myFunc();
+    }
+    
+    let i=0;
+    let theFunc = function() {
+      i++
+      document.write('javascript' + i ,'<br>');
+    }
+    //익명함수
+    theFunc();
+    
+
+    //두개의 정수를 입력받아 사칙연산을 계산하는 함수
+
+    function operator () {
+      let num1 = parseInt(prompt('첫번째 정수입력'));
+      let num2 = parseInt(prompt('두번째 정수입력'));
+
+      let add=num1+num2;
+      let sub=num1-num2;
+      let mul=num1*num2;
+      let div=num1/num2;
+
+      document.write('add = ', add, '<br>');
+      document.write('sub = ', sub, '<br>');
+      document.write('mul = ', mul, '<br>');
+      document.write('div = ', div, '<br>');
+    }
+    operator();
+    
+    /*
+    //in1 : 매개변수
+    function operator (in1, in2) {
+      let add=num1+num2;
+      let sub=num1-num2;
+      let mul=num1*num2;
+      let div=num1/num2;
+
+      document.write('add = ', add, '<br>');
+      document.write('sub = ', sub, '<br>');
+      document.write('mul = ', mul, '<br>');
+      document.write('div = ', div, '<br>');
+    }
+
+    let num1 = parseInt(prompt('첫번째 정수입력'));
+    let num2 = parseInt(prompt('두번째 정수입력'));
+
+    operator(num1,num2);
+    //num1 : 인수
+    
+
+    function operator(num1,num2) {
+      let add = num1+num2;
+      let sub = num1-num2;
+      let mul = num1*num2;
+      let div = num1/num2;
+
+      document.write('add = ',add, '<br>');
+      document.write('sub = ',sub, '<br>');
+      document.write('mul = ',mul, '<br>');
+      document.write('div = ',div, '<br>');
+    }
+    let num1 = parseInt(prompt('정수입력'));
+    let num2 = parseInt(prompt('정수입력'));
+    operator(num1,num2);
+    */
+    /*
+    //아이디 패스워드를 입력받고, 사용자 로그인 함수 작성
+    let id = 'green'
+    let pw = '1234'
+
+    function logIn (localId,localPw){
+      if(localId == id && localPw == pw){
+        alert(localId+'님 방문을 환영합니다');
+      }else {
+        alert('입력한 정보가 잘못 되었습니다');
+      }
+      return;
+    }
+
+    let userId = prompt('아이디 입력');
+    let userPw = prompt('암호입력');
+
+    logIn(userId,userPw);
+    document.write('잘알겠습니다.');
+    
+
+    let id = 'green';
+    let pw = '1234';
+
+    function logIn(lacalId,localPw) {
+      if(localId == id && localPw == pw){
+        alert('로그인에 성공하셨습니다.');
+      }else {
+        alert('입력을 잘못하셨습니다');
+      }
+      return;
+    }
+    let userId = prompt('아이디 입력');
+    let userPw = prompt('비밀번호 입력');
+    logIn(userId,userPw);
+    */
+    /*
+    function operator (in1, in2) {
+      let add=num1+num2;
+      //let sub=num1-num2;
+      //let mul=num1*num2;
+      //let div=num1/num2;
+
+      return add;
+    }//return은 하나의 값만 돌릴 수 있다.
+
+    let num1 = parseInt(prompt('첫번째 정수입력'));
+    let num2 = parseInt(prompt('두번째 정수입력'));
+
+    let sum = operator(num1,num2);
+
+    document.write('sum = ', sum, '<br>');
+    //document.write('sub = ', sub, '<br>');
+    //document.write('mul = ', mul, '<br>');
+    //document.write('div = ', div, '<br>');
+    
+
+    function operator(in1,in2) {
+      let add = num1+num2;
+      //let sub = num1-num2;
+      //let mul = num1*num2;
+      //let div = num1/num2;
+
+      return add;
+    }
+    let num1 =parseInt(prompt('정수입력'));
+    let num2 =parseInt(prompt('정수입력'));
+    let sum = operator(num1,num2);
+    document.write('sum = ',sum);
+    */
+    /*
+    //두수의 정수를 입력받고, 큰수를 출력하는 함수
+    function max (in1, in2){
+      let max =0;
+      if(in1>in2) {
+        max =in1;
+      }else {
+        max=in2;
+      }
+      return max;
+    }
+    let num1 = parseInt(prompt('첫번째 정수 입력'));
+    let num2 = parseInt(prompt('두번째 정수 입력'));
+
+    document.write('두수중 큰값은 :' ,max(num1,num2));
+    
+    function max (in1,in2) {
+      let max =0;
+      if (in1>in2) {
+        max=in1;
+      }else {
+        max=in2;
+      }
+      return max;
+    }
+    let num1 =parseInt(prompt('정수입력'));
+    let num2 = parseInt(prompt('정수입력'));
+    document.write('두수 중 큰 값 : ',max(num1,num2));*/
+    /*
+    function calc(x) {
+      let a = 10;
+      let b = 5;
+      switch (x) {
+        case ' +': return (a + b);
+        case '-': return (a - b);
+        case '*': return (a * b);
+        case '/': return (a / b);
+      }
+    }
+    */
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    /*----------------------------------------------*/
+  </style>
+</head>
+
+<body>
+  <!--
+  <script language="javascript">
+    /*
+    let x, res;
+    x = prompt("연산자를 입력하세요~");
+    res = calc(x);
+
+    document.write(res);
+    */
+  </script>
+-->
+</body>
+
+</html>

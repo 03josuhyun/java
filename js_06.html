@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script>
+    /*
+    for(let i=1; i<=100; i++) {
+      document.write('i = ', i, '<br>');
+    }
+
+    for(let i=10; i>=1; i--) {
+      document.write('i =', i ,'<br>');
+    }
+
+    for (let i=0; i<=10; i+=2) {
+      document.write('i=', i ,'<br>');
+    }
+
+    let sum = 0; //전역변수: 프로그램이 끝날때까지 지워지지 않음
+    for (let i=1; i<=10; i++) {
+      sum += i;
+      document.write('i=', i, '<br>');
+    }//지역변수 i
+    document.write ('sum =', sum);
+
+    let num=parseInt(prompt('출력할 구구단 단수 입력'));
+    let result=0;
+
+    document.write('구구단',num ,'단', '<br>');
+    for (let i=1; i<=9; i++) {
+      result = num*i;
+      document.write(`${num} x ${i} = ${result} <br>`)
+    }
+
+    for(let i=1; i<=10; i++) {
+      if(i%2==1) {
+        document.write('<font color= "red">', i , '</font><br>')
+      }else {
+        document.write('<font color= "blue">', i , '</font><br>')
+      }
+    }
+
+    //5개의 데이터를 입력받아 누적합을 출력
+    let num=0;
+    let sum=0;
+    for (let i=1; i<=5; i++) {
+      num=parseInt(prompt(i + '번째 값 입력'));
+      //sum =sum+num;
+      sum += num;
+      document.write(i, '번째 입력값 =', num, '<br>');
+    }
+    document.write('sum =', sum);
+    */
+    /*
+    //10에서 1가지 출력하기
+    for (let i=10; i>=1; i--) {
+      document.write(i);
+    }
+
+    //1에서 100까지의 짝수 출력하기
+    for(let i=1; 2*i<=100; i+2) {
+      num=2*i;
+      document.write(num,'<br>');
+    }
+    
+    //1에서 20까지의 홀수의 합 출력하기
+    let num=0;
+    let sum=0;
+    for(let i=1; i<=10; i++) {
+      num=(2*i)-1;
+      sum += num;
+      
+    }document.write(sum, '<br>');
+    
+    //구구단 2단 출력하기
+    for(let i=1; i<=9; i++) {
+      num=i*2;
+      document.write(i,'X2=', num ,'<br>');
+    }
+    
+    //1에서 100까지의 수중 5의배수이면 red, 7의 배수이면 blue, 7의 배수이면서 5의 배수이면 green으로 글자색 출력하기
+    for (let i=1; i<=100; i++) {
+      if(i%5 == 0) {
+        document.write('<font color="red">',i,'</font><br>');
+      }else if(i%7 == 0) {
+        document.write('<font color="blue">',i,'</font><br>');
+      } else {
+        document.write('<font color="black">',i,'</font><br>');
+      }
+      if(i%5 == 0 && i%7 ==0) {
+        document.write('<font color="green">',i,'</font><br>');
+      }
+    }
+    */
+    /*
+    let num=0;
+    for(let i=1; i<=10; i++) {
+     if(i==6) {
+       num=i;
+       break;
+     }
+     document.write(i,'<br>');
+    }
+    document.write('메모리 최종 값 :  ', num);
+    
+   //1에서 100까지의 숫자를 증가하면서 누적할때, 100보다 커지는 첫번째 수와 합 출력
+   let num=0;
+   let sum=0;
+    for(let i=1; ; i++){//무한루프
+     sum += i;
+     if(sum>=100){
+       num=i;
+       break;
+     }
+    }
+    document.write(`누적합 100을 넘기는 첫번째 수 : ${num} <br>`);
+    document.write(`1부터 ${num}까지의 누적합 : ${sum}`);
+   */
+
+    /**/
+    //데이터를 입력 받아 합을 구하는 프로그램 작성(단,0이 입력됫을때 for문 종료하고 합 출력하기) 종료하고 싶으면 0을 누르라는 조건
+    /*
+    let num=0;
+    let sum=0;
+    for (;;) {
+      num=parseInt(prompt('원하시는 숫자를 입력하세요'));
+      sum+=num;
+      document.write(num,'<br>');
+      if(num==0)break;
+    }
+    document.write(`입력하신 숫자를 다 더하면 =${sum}`);
+    
+   let num=0;
+   let sum=0;
+   for(; ;) {
+    num=parseInt(prompt('숫자를 입력해주세요'));
+    sum+=num;
+    document.write(num,'<br>');
+    if(num==0)break;
+   }document.write(`입력하신 숫자의 합 : ${sum}`);
+  */
+    /*
+    //document.write(`누적 합은 ${sum}`);
+    //은행 공인인증으로 로그인 하려고 한다. 5회 에러가 나면 사용할 수 없도록 프로그램 작성
+    let inputId='green'
+    let bank;
+    for(let i=1; i<=5; i++){
+      inputId=prompt('아이디를 입력해주세요');
+      if(i==5){
+        break;
+      }alert("당신은 5번의 에러가 나서 은행에 직접 방문하여주세요.");
+    }document.write('당신은 은행 로그인을 하셨습니다.')
+    
+    let Id = 'green';
+    for (let i = 1; i <= 5; i++) {
+      inputId = prompt('당신의 아이디를 적어주세요');
+      if(inputId==Id){
+        alert('로그인에 성공하셨습니다.');
+      }else{
+        alert(`당신은 로그인에 실패하셨습니다.`);
+      }
+      if (i === 5) {break;}
+    }alert('당신은 5번이상 로그인 실패하여, 은행을 방문해야합니다.');
+*/
+    /*
+    for(let i=1; i<=10; i++) {
+      //if(i%2 == 1) continue; //조건을 만족하여 continue를 만나면 더 이하의 문장을 실행x, 증감식으로 만들어짐
+      document.write(i, '<br>'); 
+    }
+    */
+    //회원번호 6자리를 입력받고, 그 중 남자회원의 수 출력하기 (단, 회원번호의 마지막 숫자가 0이면 여자, 1이면 남자)
+    //cnt(누적)
+    let num;
+    let gender;
+    let men;
+    for (let i = 1; i <= 5; i++) {
+      num = prompt('회원번호 6자리 입력하세요');
+      gender = num.substr(5, 1);
+      men=gender
+      document.write(gender+'회원번호 뒤자리 <br>' );
+      if(gender==='0'){
+        alert('남자회원입니다');
+        men=gender%0;
+      }else {
+        alert('여자회원입니다.');
+      }
+      if(i===5){break;}
+    }document.write(`남자회원은 ${men}명입니다.`);
+
+    
+    /*
+    let cnt =0;
+    let input ='';
+    for (;;){}//무한루프
+    */
+    /*
+     for(let i=2; i<=9; i++) {
+       document.write(`**${i}단** <br>`);
+       for(let j=1; j<=9; j++){
+         document.write(`${i}*${j}=${i*j} <br>`);
+       }
+       document.write('<br>');
+     }
+   */
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    /*----------------------------------------------*/
+  </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

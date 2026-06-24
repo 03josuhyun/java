@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      /*
+      $('.gnb_btn').mouseover(function(){
+        $('.gnb_down_menu').slideDown(300);
+      });
+      $('.gnb_btn').mouseout(function(){
+        $('.gnb_down_menu').slideUp(300);
+      });
+      */
+
+      const btnOpen = $('.gnb_01 .btn_01_open');
+      const btnClose = $('.gnb_01 .btn_01_close');
+      const downMenu = $('.gnb_01_down_menu');
+
+      btnOpen.click(function () {
+        downMenu.stop().animate({
+          height: 300
+        }, 300);
+        btnOpen.css('display', 'none');
+        btnClose.css('display', 'block');
+      });
+      btnClose.click(function () {
+        downMenu.stop().animate({
+          height0
+        }, 300);
+        btnOpen.css('display', 'block');
+        btnClose.css('display', 'none');
+      });
+
+      const tab = $('.notice .tab li');
+      const sheet = $('.notice .sheet div');
+      let index = 0;
+
+      tab.click(function(){
+        index = $(this).index();
+        tab.removeClass('on_tab');
+        tab.eq(index).addClass('on_tab');
+
+        sheet.removeClass('on_sheet');
+        sheet.eq(index).addClass('on_sheet');
+      })
+
+      const season_tab = $('.season .season_tab li');
+      const season_sheet = $('.season .season_sheet div');
+      const sheetImg = $('.season .season_sheet img');
+
+      season_tab.click(function(){
+        season_tab.removeClass('on');
+        $(this).addClass('on');
+      });
+
+      $('.tab_spring').click(function(){
+        sheetImg.attr('src','./img/spring.jpg');
+      })
+      $('.tab_summer').click(function(){
+        sheetImg.attr('src','./img/summer.jpg');
+      });
+      $('.tab_fall').click(function(){
+        sheetImg.attr('src','./img/fall.jpg');
+      });
+      $('tab_winter').click(function(){
+        sheetImg.attr('src','./img/winter');
+      });
+
+    });//jqurey
+
+    function on(object) {
+      object.src = object.src.replace('_off','_on');
+    };
+    function off(object) {
+      object.src = object.src.replace('_on','_off');
+    };
+
+    $(function(){
+      const img_box = $('.img div');
+
+      img_box.hover(function(){
+        $(this).find('img').attr('src',$(this).find('img').attr('src').replace('off','on'));
+      },function(){
+        $(this).find('img').attr('src',$(this).find('img').attr('src').replace('on','off'));
+      });
+    });
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    /*----------------------------------------------*/
+    .header {
+      width: 1070px;
+      height: 70px;
+      margin-bottom: 500px;
+    }
+
+    .header .gnb_btn {
+      width: 70px;
+      height: 70px;
+      background-color: cadetblue;
+      text-align: center;
+      line-height: 70px;
+      float: left;
+    }
+
+    .header .gnb {
+      width: 1000px;
+      background-color: azure;
+    }
+
+    .header .gnb ul {
+      display: flex;
+    }
+
+    .header .gnb ul li {
+      height: 70px;
+      text-align: center;
+      line-height: 70px;
+      flex-grow: 1;
+    }
+
+    .header .gnb_down_menu {
+      width: 1070px;
+      height: 500px;
+      background-color: aliceblue;
+      text-align: center;
+      line-height: 500px;
+      display: none;
+    }
+
+    .gnb_01 {
+      width: 1070px;
+      height: 70px;
+      margin-bottom: 500px;
+    }
+
+    .gnb_01 a {
+      display: flex;
+      width: 70px;
+      height: 70px;
+      background-color: coral;
+      float: left;
+      text-align: center;
+      line-height: 70px;
+    }
+
+    .gnb_01 .btn_01_close {
+      display: none;
+    }
+
+    .gnb_01 ul {
+      display: flex;
+    }
+
+    .gnb_01 ul li {
+      flex-grow: 1;
+      text-align: center;
+      line-height: 70px;
+      background-color: tomato;
+    }
+
+    .gnb_01_down_menu {
+      width: 1070px;
+      height: 500px;
+      text-align: center;
+      line-height: 500px;
+      background-color: salmon;
+      display: none;
+    }
+
+    .notice {
+      width: 500px; 
+      margin-bottom: 60px;
+    }
+    .notice .tab {}
+    .notice .tab ul {}
+    .notice .tab li {
+      width: 100px; height: 50px;
+      background-color: #eee;
+      text-align: center;
+      line-height: 50px;
+      float: left;
+      cursor: pointer;
+    }
+    .notice .tab .on_tab {
+      background-color: violet;
+      color: white;
+    }
+    .notice .sheet div {
+      width: 500px; height: 500px;
+      background-color: #eee;
+      text-align: center;
+      line-height: 500px;
+      display: none;
+    }
+    .notice .sheet .on_sheet {
+      background-color: thistle;
+      display: block;
+    }
+
+    .season {
+      width: 500px; height: 530px;
+      margin-bottom: 60px;
+    }
+    .season .season_tab {display: flex;}
+    .season .season_tab li {
+      flex-grow: 1;
+      text-align: center;
+      line-height: 30px;
+      background-color: #eee;
+      border-radius: 10px 10px 0 0;
+      cursor: pointer;
+    }
+    .season .season_tab li.on {background-color: lightpink;}
+    .season .season_sheet {
+      width: 500px; height: 500px;
+      background-color: lightpink;
+    }
+    .season .season_sheet img {
+      width: 100%; height: auto;
+    }
+
+    .img_thumnail {
+      display: flex;
+      margin-bottom: 60px;
+    }
+    .img_thumnail p {
+      width: 500px; height: 50px;
+      font-size: 24px;
+      text-align: center;
+    }
+    .img_thumnail div {
+      width: 200px; height: 200px;
+      margin-right: 10px;
+    }
+    .img_thumnail div img {
+      width: 100%; height: auto;
+    }
+
+    .img {
+      display: flex;
+    }
+    .img p {
+      width: 500px; height: 50px;
+      font-size: 24px;
+      text-align: center;
+    }
+    .img div {
+      width: 200px; height: 200px;
+      margin-right: 10px;
+    }
+    .img div img {
+      width: 100%; height: auto;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="gnb_btn">메뉴</nav>
+    <nav class="gnb">
+      <ul>
+        <li>menu01</li>
+        <li>menu02</li>
+        <li>menu03</li>
+        <li>menu04</li>
+        <li>menu05</li>
+      </ul>
+    </nav>
+    <nav class="gnb_down_menu">
+      full_down_menu
+    </nav>
+  </header>
+  <section>
+    <div class="gnb_01">
+      <a href="#!" class="btn_01_open btn">열기</a>
+      <a href="#!" class="btn_01_close btn">닫기</a>
+      <ul>
+        <li>menu01</li>
+        <li>menu02</li>
+        <li>menu03</li>
+        <li>menu04</li>
+        <li>menu05</li>
+      </ul>
+    </div>
+    <div class="gnb_01_down_menu">
+      full_down_menu
+    </div>
+  </section>
+  <section class="notice">
+    <ul class="tab">
+      <li class="on_tab">tab01</li>
+      <li>tab02</li>
+      <li>tab03</li>
+      <li>tab04</li>
+      <li>tab05</li>
+    </ul>
+    <div class="sheet">
+      <div class="on_sheet">sheet01</div>
+      <div>sheet02</div>
+      <div>sheet03</div>
+      <div>sheet04</div>
+      <div>sheet05</div>
+    </div>
+  </section>
+  <section class="season">
+    <ul class="season_tab">
+      <li class="tab_spring">spring</li>
+      <li class="tab_summer">summer</li>
+      <li class="tab_fall">fall</li>
+      <li class="tab_winter">winter</li>
+    </ul>
+    <div class="season_sheet">
+      <img src="./img/spring.jpg" alt="">
+    </div>
+  </section>
+  <section class="img_thumnail">
+    <p>js</p>
+    <div><img src="./img/spring_off.jpg" alt="spring_img" onmouseover="on(this)" onmouseout="off(this)"></div>
+    <div><img src="./img/summer_off.jpg" alt="summer_img" onmouseover="on(this)" onmouseout="off(this)"></div>
+    <div><img src="./img/fall_off.jpg" alt="fall_img" onmouseover="on(this)" onmouseout="off(this)"></div>
+    <div><img src="./img/winter_off.jpg" alt="winter_img" onmouseover="on(this)" onmouseout="off(this)"></div>
+  </section>
+
+  <section class="img">
+    <p>jquery</p>
+    <div><img src="./img/spring_off.jpg" alt="spring"></div>
+    <div><img src="./img/summer_off.jpg" alt="summer"></div>
+    <div><img src="./img/fall_off.jpg" alt="fall"></div>
+    <div><img src="./img/winter_off.jpg" alt="winter"></div>
+  </section>
+</body>
+
+</html>

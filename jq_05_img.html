@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      const tab = $('.season .season_tab li');
+      const sheet =$('.season #sheet');
+      const sheetImg = $('.season #sheet img')
+
+      tab.click(function(){
+        tab.removeClass('on');
+        $(this).addClass('on');
+      });
+
+      $('.tab_spring').click(function(){
+        sheetImg.attr('src','./img/spring.jpg');
+      });
+      $('.tab_summer').click(function(){
+        sheetImg.attr('src','./img/summer.jpg');
+      });
+      $('.tab_fall').click(function(){
+        sheetImg.attr('src','./img/fall.jpg');
+      });
+      $('.tab_winter').click(function(){
+        sheetImg.attr('src','./img/winter.jpg');
+      });
+
+      /*$('.tab_spring').click(function(){
+        sheet.removeClass().addClass('spring');
+      });
+      $('.tab_summer').click(function(){
+        tab.removeClass().addClass('summer');
+      });
+
+      $('tab_fall').click(function(){
+        tab.removeClass().addClass('fall');
+      });
+      $('tab_winter').click(function(){
+        tab.removeClass().addClass('winter');
+      })*/
+    });//jqurey
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    .season {
+      width: 500px; height: 530px;
+    }
+    .season .season_tab {
+      display: flex;
+    }
+    .season .season_tab li {
+      flex-grow: 1;
+      text-align: center;
+      line-height: 30px;
+      background-color: #eee;
+      border-radius: 10px 10px 0 0;
+      cursor: pointer;
+    }
+    .season .season_tab li.on {
+      background-color: orange;
+    }
+    .season #sheet {
+      width: 500px; height: 500px;
+      background-color: #eee;
+    }
+    .season #sheet img {
+      width: 100%; height: auto;
+    }
+    /*
+    .spring {
+      background-image: url('./img/spring.jpg');
+      background-size: cover;
+    }
+    .summer {
+      background-image: url('./img/summer.jpg');
+      background-size: cover;
+    }
+    .fall {
+      background-image: url('./img/fall.jpg');
+      background-size: cover;
+    }
+    .winter {
+      background-image: url('./img/winter.jpg');
+      background-size: cover;
+    }
+    */
+  </style>
+</head>
+<body>
+  <section class="season">
+    <ul class="season_tab">
+      <li class="tab_spring on">spring</li>
+      <li class="tab_summer">summer</li>
+      <li class="tab_fall">fall</li>
+      <li class="tab_winter">winter</li>
+    </ul>
+    <!--<div class="spring" id="sheet"></div>-->
+    <div id="sheet">
+      <img src="./img/spring.jpg" alt="계절이미지 변경">
+    </div>
+    
+  </section>
+</body>
+</html>

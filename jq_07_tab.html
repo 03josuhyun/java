@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    function on(object) {
+      object.src = object.src.replace('_off','_on');
+    };
+    function off(object) {
+      object.src = object.src.replace('_on','_off');
+    };
+    //js
+  </script>
+  <script>
+    /*$(function () {
+      const img_box = $('section div');
+      
+      img_box.hover(function(){
+        $(this).find('img').attr('src',$(this).find('img').attr('src').replace('off','on'));
+      },function(){
+        $(this).find('img').attr('src',$(this).find('img').attr('src').replace('on','off'));
+      });
+    });//jqurey*/
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+    }
+    a {
+      color: black;
+      text-decoration: none;
+    }
+    /*----------------------------------------------*/
+    section {
+      display: flex;
+    }
+    section div {
+      width: 200px; height: 200px;
+      margin-right: 10px;
+    }
+    section div img {
+      width: 100%; height: auto;
+    }
+  </style>
+</head>
+<body>
+<section>
+  <div><img src="./img/spring_off.jpg" alt="spring_thumnail" onmouseover="on(this)" onmouseout="off(this)"></div>
+  <div><img src="./img/summer_off.jpg" alt="summer_thumnail" onmouseover="on(this)" onmouseout="off(this)"></div>
+  <div><img src="./img/fall_off.jpg" alt="fall_thumnail" onmouseover="on(this)" onmouseout="off(this)"></div>
+  <div><img src="./img/winter_off.jpg" alt="winter_thumnail" onmouseover="on(this)" onmouseout="off(this)"></div>
+</section>
+
+  
+  <!--<section>
+    <div><img src="./img/spring_off.jpg" alt="spring_thumnail"></div>
+    <div><img src="./img/summer_off.jpg" alt="summer_thumnail"></div>
+    <div><img src="./img/fall_off.jpg" alt="fall_thumnail"></div>
+    <div><img src="./img/winter_off.jpg" alt="winter_thumnail"></div>
+  </section>-->
+  
+</body>
+</html>

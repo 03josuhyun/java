@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQurey 이벤트</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script><!--url-->
+  <!--<script src="./jquery-4.0.0.slim.min.js"></script>파일안에 존재, 다운로드 방식, 같이 올려줘야함, 속도가 빠름-->
+  <script>
+    $(document).ready(function() {
+      $('.box01').css('color','red');
+    });/*jQurey는 순서상관없음,*/
+    /*$('.box01') : 객체*/
+    jQuery(function(){
+      $('.box01').css('background-color','yellow')
+    });/*$=jQurey*/
+    $(function(){
+      $('.box01').css('font-size','24px')
+    });/*세개다 다 같지만, 세번째가 제일 많이 사용함*/
+
+    $(function(){
+      $('*').css('border','1px solid blue');
+    });
+    $(function(){
+      $('#tit').css('background-color','yellow').css('border','2px solid red');
+    });
+    $(function(){
+      $('h3').css('background-color','pink');
+    });
+    $(function(){
+      $('.direct').css('background-color','skyblue');
+    });
+    $(function(){
+      $('h1,h3').css('color','brown');
+    });
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+  </style>
+</head>
+<body>
+  <div class="box01">test_box</div>
+
+  <h1>제이쿼리</h1>
+  <h2 id="tit">직접 선택자 및 관계 선택자</h2>
+  <h3 class="direct">직접 선택자</h3>
+  <h3>관계 선택자</h3>
+</body>
+</html>

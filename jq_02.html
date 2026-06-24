@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+
+      /*$('.gnb_btn').mouseover(function () {
+        $('.gnb_down_menu').slideDown(300);
+      });//gnb_btn_moseover_event
+
+      $('.gnb_btn').mouseout(function(){
+        $('.gnb_down_menu').slideUp(300);
+      });
+
+      $('.gnb_btn').hover(function(){
+        $('.gnb_down_menu').stop() .slideToggle(300);
+      });*/
+
+      $('.gnb_btn').hover(function () {
+        $('.gnb_down_menu').slideDown(300);
+      });
+      $('.gnb_down_menu').mouseout(function () {
+        $(this).slideUp(300);
+      });
+    });//jqurey_function
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    /*----------------------------------------------*/
+    .gnb {
+      width: 1070px;
+      margin: 0 auto;
+    }
+    .gnb .gnb_menu {
+      overflow: hidden;
+    }
+    .gnb .gnb_menu .gnb_btn {
+      width: 70px;
+      height: 70px;
+      border: 1px solid black;
+      box-sizing: border-box;
+      line-height: 70px;
+      text-align: center;
+      float: left;
+      cursor: pointer;
+    }
+    .gnb .gnb_menu ul {
+      width: 1000px;
+      float: left;
+      display: flex;
+    }
+    .gnb .gnb_menu ul li {
+      flex-grow: 1;
+      text-align: center;
+      line-height: 70px;
+      background-color: bisque;
+      color: brown;
+      cursor: pointer;
+    }
+    .gnb .gnb_down_menu {
+      width: 1070px;
+      height: 300px;
+      border: 1px solid black;
+      box-sizing: border-box;
+      font-size: 50px;
+      text-align: center;
+      line-height: 300px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="gnb">
+    <div class="gnb_menu">
+      <div class="gnb_btn">메뉴</div>
+      <ul>
+        <li>menu01</li>
+        <li>menu02</li>
+        <li>menu03</li>
+        <li>menu04</li>
+      </ul>
+    </div><!--gnb_menu-->
+    <div class="gnb_down_menu">
+      full_down_menu
+    </div><!--gnb_down_menu-->
+  </nav><!--gnb-->
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $('.second').parent().css('border','1px solid red');
+      //.second의 부모에게 
+
+      $('#wrap li').css('background-color','yellow');
+      //wrap li를 호명
+      $('#wrap>li').css('border','1px solid blue');
+      //wrap의 자식인 li를
+
+      $('body').children().css('background-color','#ccc');
+      //body의 자식들 전부에게 
+
+      $('#second_1').prev().css('border','2px solid brown');
+      //second_1의 전에한테
+
+      //$('#second_1').next().css('border','1px solid red');
+      $('#second_1+li').css('border','1px solid red');
+      //첫번째는 next로 인해, 두번째는 요소선택+다음요소로 해서 선택
+
+      $('#second_1').siblings().css('background-color','blue');
+      //본인 빼고 형제들에게
+
+      $('*').css('border','1px solid #666');
+
+      $('#tit').css('background-color','yellow').css('border','2px solid red');
+
+      $('.direct').css('background-color','pink');
+
+      $('h3').css('border','1px solid yellow');
+
+      $('h1,h3').css('background-color','white')
+    });//jqurey
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0;
+      padding: 0;}
+    li {list-style: none;}
+    a {color: black;
+      text-decoration: none;}
+    /*----------------------------------------------*/
+  </style>
+</head>
+
+<body>
+  <h1>인접 관계 선택자</h1>
+  <ul>
+    <li>내용1
+      <ul>
+        <li>내용2</li>
+        <li class="second">내용3</li>
+      </ul>
+    </li>
+  </ul><br>
+  <ul id="wrap">
+    <li>내용1
+      <ul>
+        <li>내용2</li>
+      </ul>
+    </li>
+  </ul><br>
+  <h1>인접 관계 선택자</h1>
+  <ul>
+    <li>내용1</li>
+    <li id="second_1">내용2</li>
+    <li>내용3</li>
+    <li>내용4</li>
+  </ul><br>
+<!---------------------------------------->
+  <h1>제이쿼리</h1>
+  <h2 id="tit">직접 선택자 및 관계 선택자</h2>
+  <h3 class="direct">직접 선택자</h3>
+  <h3>관계 선택자</h3>
+</body>
+
+</html>

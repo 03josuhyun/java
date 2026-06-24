@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      const tab = $('.season .season_tab li');
+      const sheet = $('.season .season_sheet div');
+      let index = 0;//인덱스 번호는 바뀌는거기때문에 let로 선언
+      //배열함수, 인덱스가 존재함
+
+      tab.click(function () {
+        tab.removeClass('on');
+        $(this).addClass('on');
+
+        index = $(this).index();
+
+        sheet.removeClass('on_sheet');
+        sheet.eq(index).addClass('on_sheet');
+      });
+    });//jqurey
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    /*----------------------------------------------*/
+    .season {
+      width: 500px;
+      height: 550px;
+    }
+    .season .season_tab {
+      display: flex;
+    }
+    .season .season_tab li {
+      flex-grow: 1;
+      background-color: #eee;
+      border-radius: 20px 20px 0 0;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+      /*컨텐츠 전체에 바꾸고 싶으면 이렇게 transition을 걸어주기*/
+    }
+    .season .season_tab li.on {
+      background-color: yellowgreen;
+    }
+    .season .season_sheet {
+      width: 500px;
+      height: 500px;
+      position: relative;
+    }
+    .season .season_sheet div {
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    .season .season_sheet div.on_sheet {
+      opacity: 1;
+    }
+    /*opacity는 자리를 차지함, 트랜지션을 위해서 사용*/
+    .season .season_sheet img {
+      width: 100%;
+      /*height: auto;*/
+    }
+  </style>
+</head>
+<body>
+  <section class="season">
+    <ul class="season_tab">
+      <li class="on">spring</li>
+      <li>summer</li>
+      <li>fall</li>
+      <li>winter</li>
+    </ul>
+    <div class="season_sheet">
+      <div class="on_sheet"><img src="./img/spring.jpg" alt="spring"></div>
+      <div><img src="./img/summer.jpg" alt=""></div>
+      <div><img src="./img/fall.jpg" alt=""></div>
+      <div><img src="./img/winter.jpg" alt=""></div>
+    </div>
+  </section>
+</body>
+</html>

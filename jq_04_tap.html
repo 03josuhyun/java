@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      /*
+      $('.notice .tap .tap01').click(function(){
+        $('.notice .tap li').css('background-color','#ccc');
+        $('.notice .tap .tap01').css('background-color','yellow');
+        $('.notice .sheet div').css('display','none');
+        $('.notice .sheet .sheet01').css('display','block');
+      });//tap01_click_event
+      $('.notice .tap .tap02').click(function(){
+        $('.notice .tap li').css('background-color','#ccc');
+        $('.notice .tap .tap02').css('background-color','yellow');
+        $('.notice .sheet div').css('display','none');
+        $('.notice .sheet .sheet02').css('display','block');
+      });//tap02_click_event
+      $('.notice .tap .tap03').click(function(){
+        $('.notice .tap li').css('background-color','#ccc');
+        $('.notice .tap .tap03').css('background-color','yellow');
+        $('.notice .sheet div').css('display','none');
+        $('.notice .sheet .sheet03').css('display','block');
+      });//tap03_click_event
+      $('.notice .tap .tap04').click(function(){
+        $('.notice .tap li').css('background-color','#ccc');
+        $('.notice .tap .tap04').css('background-color','yellow');
+        $('.notice .sheet div').css('display','none');
+        $('.notice .sheet .sheet04').css('display','block');
+      });//tap04_click_event
+      $('.notice .tap .tap05').click(function(){
+        $('.notice .tap li').css('background-color','#ccc');
+        $('.notice .tap .tap05').css('background-color','yellow');
+        $('.notice .sheet div').css('display','none');
+        $('.notice .sheet .sheet05').css('display','block');
+      });//tap05_click_event
+      */
+
+      const tap = $('.notice .tap .li');
+      const sheet = $('.notice .sheet div');
+      let index = 0;
+
+      tap.click(function(){
+        index = $(this).index();//뭘 눌렀는지 모르기 때문에 this
+        tap.removeclass('on_tap');
+        tap.eq(index).addClass('on_tap');
+
+        sheet.removeClass('on_sheet');
+        sheet.eq(index).addClass('on_sheet');
+      });//tap_click_event
+    });//jqurey
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    .notice {
+      width: 500px;
+      margin: 0 auto;
+    }
+    .notice .tap {overflow: hidden;}
+    .notice .tap li {
+      width: 100px; height: 50px;
+      background-color: #ccc;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 10px 10px 0 0;
+      float: left;
+      cursor: pointer;
+    }
+    /*.notice .tap .tap01 {background-color: yellow;}*/
+    .notice .tap .on_tap {background-color: yellow;}
+    .notice .sheet .on_sheet {display: block;}
+    .notice .sheet div {
+      width: 500px; height: 500px;
+      background-color: yellow;
+      text-align: center;
+      line-height: 500px;
+      display: none;
+    }
+    /*.notice .sheet .sheet01 {display: block;}*/
+  </style>
+</head>
+<body>
+  <!--<section class="notice">
+    <ul class="tap">
+      <li class="tap01">tap01</li>
+      <li class="tap02">tap02</li>
+      <li class="tap03">tap03</li>
+      <li class="tap04">tap04</li>
+      <li class="tap05">tap05</li>
+    </ul>
+    <div class="sheet">
+      <div class="sheet01">sheet01</div>
+      <div class="sheet02">sheet02</div>
+      <div class="sheet03">sheet03</div>
+      <div class="sheet04">sheet04</div>
+      <div class="sheet05">sheet05</div>
+    </div>
+  </section>-->
+
+  <section class="notice">
+    <ul class="tap">
+      <li class="on_tap">tap01</li>
+      <li>tap02</li>
+      <li>tap03</li>
+      <li>tap04</li>
+      <li>tap05</li>
+    </ul>
+    <div class="sheet">
+      <div class="on_sheet">sheet01</div>
+      <div>sheet02</div>
+      <div>sheet03</div>
+      <div>sheet04</div>
+      <div>sheet05</div>
+    </div>
+  </section>
+</body>
+</html>

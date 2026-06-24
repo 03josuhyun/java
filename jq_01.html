@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      $('#btn1').on('click',function(){
+        $('h1').hide(1000,function(){
+          alert('숨김완료!')
+        });
+      });
+      $('#btn2').on('click',function(){
+        $('h1').show('slow',function(){
+          alert('노출완료!')
+        });
+      });
+
+      $('#btn3').on('click',function(){
+        $('h2').toggle('slow');
+      });
+
+      $('#btn4').on('click',function(){
+        $('h3').fadeOut(1000);
+      });
+      $('#btn5').on('click',function(){
+        $('h3').fadeIn('show');
+      });
+      $('#btn6').on('click',function(){
+        $('h3').fadeToggle('fast');
+      });
+
+      $('#btn7').on('click',function(){
+        $('h4').fadeTo('slow',0.3);
+      });
+      $('#btn8').on('click',function(){
+        $('h4').fadeTo('slow',1);
+      });
+
+      $('#btn9').on('click',function(){
+        $('h5').slideUp(1000);
+      });
+      $('#btn10').on('click',function(){
+        $('h5').slideDown('slow');
+      });
+      $('#btn11').on('click',function(){
+        $('h5').slideToggle('fast');
+      });
+
+      $('#h6').animate({
+        marginLeft:'250px'
+      },5000,function(){alert('도착완료!')});
+      $('#h7').animate({
+        marginLeft:'250px',
+        opacity:0.3,
+        width:'100px'
+      },5000);
+      $('#h8').animate({
+        marginLeft:'250px'
+      },3000).animate({marginLeft:'100px'},2000);
+
+      $('#h9').animate({
+        marginLeft:'250px'
+      },3000);
+      $('#h10').delay(1000).animate({
+        marginLeft:'250px'
+      },3000);
+      $('#stopBtn').on('click',function(){
+        $('#h9').stop();
+      });
+
+      $('#h11').animate({marginLeft:'300px'},1000).animate({marginLeft:0},1000);
+      $('#h12').animate({marginLeft:'300px'},1000).animate({marginLeft:0},1000);
+      $('#h12').clearQueue();
+
+      $('#h13').animate({marginLeft:'300px'},1000).animate({marginLeft:'0'},1000);
+      $('#h13').dequeue();
+
+      $('#h14').animate({marginLeft:'300px'},1000);
+      $('#h14').finish();
+    });//jqurey
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    h5{
+      width: 300px; height: 200px;
+      background-color: #ff0;
+    }
+
+    #h6 {
+      width: 50px; height: 30px;
+      background-color: red;
+      font-size: 30px;
+    }
+    #h7 {
+      width: 50px; height: 30px;
+      background-color: orange;
+      font-size: 30px;
+    }
+    #h8 {
+      width: 50px; height: 30px;
+      background-color: aqua;
+      font-size: 100%;
+    }
+
+    #h9{
+      width: 50px; height: 30px;
+      background-color: red;
+      font-size: 100%;
+    }
+    #h10 {
+      width: 50px; height: 30px;
+      background-color: orange;
+      font-size: 100%;
+    }
+
+    #h11 {
+      width: 50px; height: 30px;
+      background-color: rebeccapurple;
+      font-size: 100%;
+    }
+    #h12 {
+      width: 50px; height: 30px;
+      background-color: orangered;
+      font-size: 100%;
+    }
+
+    #h13 {
+      width: 50px; height: 30px;
+      background-color: cadetblue;
+      font-size: 100%;
+    }
+    
+    #h14 {
+      width: 50px; height: 30px;
+      background-color: coral;
+      font-size: 100%;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn1">Hide</button>
+  <button id="btn2">Show</button>
+  <h1>내용</h1><br>
+
+  <button id="btn3">toggle</button>
+  <h2>내용</h2><br>
+
+  <button id="btn4">fadeOut</button>
+  <button id="btn5">fadeIn</button>
+  <button id="btn6">fade Toggle</button>
+  <h3>내용</h3><br>
+
+  <button id="btn7">투명도(30%)</button>
+  <button id="btn8">투명도(100%)</button>
+  <h4>내용</h4><br>
+
+  <button id="btn9">slideUp</button>
+  <button id="btn10">slideDown</button>
+  <button id="btn11">slideToggle</button>
+  <h5>내용</h5>
+
+  <h1 id="h6">내용</h1>
+  <h2 id="h7">내용</h2>
+  <h3 id="h8">내용</h3><br>
+
+  <button id="stopBtn">stop</button>
+  <h1 id="h9">내용</h1>
+  <h2 id="h10">내용</h2><br>
+
+  <h1 id="h11">내용</h1>
+  <h2 id="h12">내용</h2><br>
+
+  <h1 id="h13">내용</h1><br>
+
+  <h1 id="h14">내용</h1>
+</body>
+</html>

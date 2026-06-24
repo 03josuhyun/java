@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"></script>
+  <script>
+    $(function(){
+      $(window).scroll(function(){
+        if($(window).scrollTop()>=200){
+          $('.gnb').addClass('fixed');
+          $('.btn_top').fadeIn(300);
+        }else {
+          $('.gnb').removeClass('fixed');
+          $('.btn_top').fadeOut(300);
+        }
+      });//scroll
+      $('.btn_top').click(function(e){
+        e.preventDefault();
+
+        $('html, body').stop().animate({
+          scrollTop : 0
+        },1000);
+
+        //$(window).scrollTo(this.hash || 0,1000);
+      });
+
+      const img_box = $('.img div');
+
+      img_box.hover(function(){
+        $(this).find('img').attr('src',$(this).find('img').attr('src').replace('off','on'));
+      },function(){
+        $(this).find('img').attr('src',$(this).find('img').attr('src').replace('on','off'));
+      });
+
+      const tab = $('.season .season_tab li');
+      const sheet = $('.season .season_sheet div');
+      let index = 0;
+
+      tab.click(function(){
+        tab.removeClass('on');
+        $(this).addClass('on');
+
+        index = $(this).index();
+
+        sheet.removeClass('on_sheet');
+        sheet.eq(index).addClass('on_sheet');
+      });
+    });//jqurey
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    body {
+      height: 5000px;
+    }
+    .header {
+      width: 100%; height: 200px;
+      background-color: tomato;
+      text-align: center;
+      line-height: 200px;
+    }
+    .gnb {
+      width: 100%; height: 40px;
+      text-align: center;
+      line-height: 40px;
+      background-color: salmon;
+      margin-bottom: 60px;
+    }
+    .fixed {
+      position: fixed;
+      top: 0; left: 0;
+      z-index: 99999;
+    }
+    .btn_top {
+      display: block;
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      color: white;
+      line-height: 50px;
+      text-align: center;
+      position: fixed;
+      bottom: 50px; right: 50px;
+      display: none;
+    }
+
+    .img {
+      width: 1070px;
+      margin: 0 auto;
+      display: flex;
+      margin-bottom: 60px;
+    }
+    .img div {
+      width: 260px; height: 260px;
+      margin-right: 10px;
+    }
+    .img div img {
+      width: 100%; height: auto;
+    }
+
+    .season {
+      width: 1070px;
+      margin: 0 auto;
+      margin-bottom: 60px;
+    }
+    .season .season_tab {
+      display: flex;
+    }
+    .season .season_tab li {
+      flex-grow: 1;
+      text-align: center;
+      line-height: 50px;
+      background-color: #eee;
+      border-radius: 10px 10px 0 0;
+      transition: all 0.3s;
+    }
+    .season .season_tab li.on {
+      background-color: lightpink;
+    }
+    .season .season_sheet {
+      width: 1070px; height: 500px;
+      background-color: #eee;
+      position: relative;
+    }
+    .season .season_sheet div {
+      width: 500px; height: 500px;
+      position: absolute;
+      top: 0; left: 285px;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    .season .season_sheet div.on_sheet {
+      opacity: 1;
+    }
+    .season .season_sheet div img {
+      width: 100%; height: auto;
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <h1>header</h1>
+  </header>
+  <nav class="gnb">
+    <h2>gnb</h2>
+  </nav>
+  <a href="#header" class="btn_top">top</a>
+  <section class="img">
+    <div><img src="./img/spring_off.jpg" alt="spring"></div>
+    <div><img src="./img/summer_off.jpg" alt="summer"></div>
+    <div><img src="./img/fall_off.jpg" alt="fall"></div>
+    <div><img src="./img/winter_off.jpg" alt="winter"></div>
+  </section>
+  <section class="season">
+    <ul class="season_tab">
+      <li class="on">spring</li>
+      <li>summer</li>
+      <li>fall</li>
+      <li>winter</li>
+    </ul>
+    <div class="season_sheet">
+      <div class="on_sheet"><img src="./img/spring.jpg" alt=""></div>
+      <div><img src="./img/summer.jpg" alt=""></div>
+      <div><img src="./img/fall.jpg" alt=""></div>
+      <div><img src="./img/winter.jpg" alt=""></div>
+    </div>
+  </section>
+</body>
+</html>

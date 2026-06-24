@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      const btnOpen = $('.header .gnb .btn_open');
+      const btnClose = $('.header .gnb .btn_close');
+      const downMenu = $('.header .gnb_down_menu');
+      //전역변수로 함수 선언해줘야함
+      //const는 변하지 않을 거기 때문에
+      btnOpen.click(function(){
+        downMenu.stop().animate({
+          height: 300
+        },300);
+
+        btnOpen.css('display','none');
+        btnClose.css('display','block');
+      });//btnOpen_click_event
+
+      btnClose.click(function(){
+        downMenu.stop().animate({
+          height:0
+        },300);
+
+        btnClose.css('display','none');
+        btnOpen.css('display','block');
+      });
+    });//jqurey 
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    .header {
+      width: 100%;
+    }
+    .header .gnb {
+      width: 1070px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .header .gnb a{
+      display: flex;
+      width: 70px; height: 70px;
+      border: 1px solid black;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 70px;
+      float: left;
+    }
+    .header .gnb .btn_close {
+      display: none;
+    }
+    .header .gnb ul {
+      width: 1000px;
+      float: left;
+      display: flex;
+    }
+    .header .gnb ul li {
+      flex-grow: 1;
+      text-align: center;
+      line-height: 70px;
+      background-color: beige;
+      cursor: pointer;
+    }
+    .header .gnb_down_menu {
+      width: 100%; height: 0px;
+      font-size: 50px;
+      text-align: center;
+      line-height: 300px;
+      background-color: azure;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="gnb">
+      <a href="#!" class="btn_open btn">열기</a>
+      <a href="#!" class="btn_close btn">닫기</a>
+      <ul>
+        <li>menu01</li>
+        <li>menu02</li>
+        <li>menu03</li>
+        <li>menu04</li>
+        <li>menu05</li>
+      </ul>
+    </nav><!--gnb-->
+    <div class="gnb_down_menu">
+      full_down_menu
+    </div><!--gnb_down_menu-->
+  </header><!--header-->
+</body>
+</html>

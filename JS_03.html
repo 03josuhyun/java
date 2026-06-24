@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script>
+    //삼항 연산자(조건 ? 조건을 만족할때 (true)일때 실행문 : 조건을 만족하지 않을 때(false) 일때 실행)
+    //let num1 =100;
+    //let num2 =12;
+    //document.write((num1 > num2)? 'num1이 더큽니다' : 'num2가 더 큽니다');
+    //let result = num1>num2 ? 'num1이 큼' : 'num2가 큼';
+    //document.write(result);
+    /*
+    let input =prompt('하나의 정수 입력 :');
+    let result = input%2 === 0? '짝수' : '홀수';
+    document.write(`입력된 정수 ${input} 은 ${result} 입니다.`);
+    */
+   /*
+   let num1 = prompt('첫번째 정수 입력');
+   let num2 = prompt('두번째 정수 입력');
+
+   let result = num1>num2 ? num1:num2;
+   document.write(`첫번째 정수 ${num1}과 두번째 정수 ${num2} 중 큰 정수는 ${result}입니다.`);
+
+   let result = num1>num2 ? num1: (num1<num2 ? num2: '두수는 같다');
+   document.write(result);
+   */
+  /*
+   //예제1
+   let a =10;
+   let b =20;
+   let c =10;
+   let f ='20';
+
+   document.write(a>b,'<br>');
+   document.write(a<b,'<br>');
+   document.write(a<=b,'<br>');
+   document.write(b==f,'<br>');
+   document.write(a!=b,'<br>');
+   document.write(b===f,'<br>');
+   */
+  /*
+   //예제2
+   let a= 10;
+   let b= 20;
+   let m= 30;
+   let n= 40;
+   let result;
+
+   result = a>b || b>=m ||m>n;
+   document.write(result,'<br>');
+   result = a>b || b>=m || m<=n;
+   document.write(result,'<br>');
+   result = a<=b && b>=m && m<=n;
+   document.write(result,'<br>');
+   result = a<b && b<=m && m<=n;
+   document.write(result,'<br>');
+   result = !(a>b);
+   document.write(result,'<br>');
+   */
+  /*
+   //예제3 
+   let a='A';
+   let b='B';
+   let result;
+   
+   result= !2||3 && !0;
+   document.write(result,'<br>');
+   result= a<b && a==b;
+   document.write(result,'<br>');
+   result= a<b || a==b;
+   document.write(result,'<br>');
+   */
+  /*
+   //문제1) 본인의 신장과 체중을 입력받아 적정 체중 판단을 하시오.(적정체중 : (신장-100)*0.9 / 그외 (체중미달, 과체중으로 구분))
+   let height = parseInt(prompt('당신의 신장은 : '));
+   let weight = parseInt(prompt('당신의 체중은 : '));
+   let result = (height-100)*0.9==weight ? '당신은 적정체중입니다.' : ((height-100)*0.9<=weight ? '당신은 과체중입니다' : '당신은 체중미달입니다.');
+   document.write(result);
+   */
+  /*
+   //문제2) 학생의 하루 지출 내역은 교통비(3000원), 식비(6000원), 음료비(3000원)이다. 하루 용돈 10000원으로 지출비용을 계산하여라. 초과일 경우 '00원 초과'로 출력하시오.
+   let carpay = parseInt(prompt('교통비 :'));
+   let eatpay = parseInt(prompt('식비 :'));
+   let drinkpay = parseInt(prompt('음료비 : '));
+   let totalpay = carpay+eatpay+drinkpay;
+   let result = totalpay>10000 ? `학생은 ${totalpay-10000}원 초과했습니다` : `학생은 ${totalpay}원 지출했습니다.` ;
+   document.write(result);
+   */
+  /*
+  //
+  let num1 =15;
+  let num2 =12;
+
+  if(num1>num2) {
+    document.write('num1이 큼')
+  }
+  if(num2>num1) {
+    document.write('num2가 큼')
+  }
+  if (num1===num2) {
+    document.write('두수는 같다')
+  }
+    */
+   /*
+    let input = parseInt(prompt('정수 입력'));
+    if(input%2 === 0){
+      document.write(`입력한 정수 ${input}은 짝수입니다.`);
+    }
+    if(input%2==1) {
+      document.write(`입력한 정수 ${input}은 홀수입니다.`);
+    }
+      */
+     /*
+     단일 if
+     let input = prompt('주민번호 입력', '2606081');
+     let gender = input.substr(6,1) ;//substr(시작문자번호,추출할 문자개수)
+     //document.write(gender);
+     if(gender == 1 || gender === '3') {
+      document.write('남자');
+     }
+     if(gender == 2 || gender === '4') {
+      document.write('여자');
+     }
+      */
+     /*
+     let userId = prompt('아이디 입력');
+     if (userId) {
+      alert(userId +'님 방문을 환영합니다.');
+     }
+     if(userId ='') {
+      alert(userId+'님 방문을 환영합니다.');
+     }
+      */
+     /*
+     //if-else문
+     let no = prompt('주민번호 입력', '260608-1');
+     let gender = no.substr(7,1);
+     let result;
+     //document.write(gneder);
+
+     if(gender ==='1' || gender === '3') {
+      result ='남자';
+     }else {
+        result = '여자';
+      }
+     document.write(`입력한 주민번호의 고객은 ${result}입니다.`)
+     */
+    /*
+     let num = parseInt(prompt('정수입력'));
+     let sol = num%2;
+     let result;
+     if (sol === 0) {
+      result='짝수';
+     } else {
+      result ='홀수';
+     }
+     document.write(`입력한 정수는 ${result} 입니다.`)
+     */
+    /*
+     let num = parseInt(prompt('숫자입력'));
+     let result;
+     if (num>0) {
+      result='양수';
+     }else {
+      if(num<0) {
+        result='음수';
+      }else {
+        result ='0';
+      }
+     }
+     document.write(`입력한 숫자는 ${result}입니다.`);
+     */
+    /*
+    //
+    let num = parseInt(prompt('숫자입력'));
+    let result;
+    if (num>=0) {
+      if (num>0){
+        result = '양수';
+      }else {
+        result = '0';
+      }
+    }else {
+      result = '음수';
+    }
+    document.write(`입력한 숫자는 ${result}입니다.`);
+    */
+
+    let num1 = parseInt(prompt('첫번째 정수 입력'));
+    let num2 = parseInt(prompt('두번째 정수 입력'));
+    let max = 0;
+    let min = 0;
+
+    if (num1>num2) {
+      max = num1;
+      min = num; 
+    } else {
+      max = num2;
+      min = num1;
+    }
+    document.write(`max = ${max} <br>`);
+    document.write(`min = ${min}`);
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+  </style>
+</head>
+<body>
+  
+</body>
+</html>

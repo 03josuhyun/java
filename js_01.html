@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript</title>
+  <script>
+    document.write("안녕하세요!",'<br>');
+    //(객체)이벤트 걸릴 대상, (내장함수시킬 일)
+    //window.alert("안녕하세요~");
+    //window.document.alert("");
+    //alert("");
+    //window는 최상위 객체, 생략 가능함
+    //document.querySelector('.box').innerHTML = "안녕하세요, div박스 입니다.";
+    document.write(2026, '<br>');
+    document.write(20>100, '<br>');//불린 데이터
+    document.write(10+10);
+    document.write('<br>', '<br>');
+    //let: 예약어, num1 : 변수
+    let num1 = 10;
+    let num2 = 20;
+    let sum1 = num1+num2;
+    document.write('두수의 합 : ',sum1 ,'<br>');
+
+    /*let num3 = 0;
+    let num4 = 0;
+    let sum2 = 0;*/
+
+    let num5;
+    let num6;
+    let sum3;
+    sum3 = num5+num6;
+    document.write('두수의 합 : ', sum3);
+  </script>
+  <style>
+    .box {
+      width: 200px; height: 200px;
+      text-align: center;
+      line-height: 200px;
+      background-color: #ccc;
+      font-size: 24px;
+      font-weight: bolder;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    document.querySelector('.box').innerHTML = "안녕하세요";//dom 밑에 있어야함
+  </script>
+</body>
+</html>
