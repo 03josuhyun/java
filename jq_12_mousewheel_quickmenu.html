@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      let btn = $('.quick div');
+      let page = $('.contents section');
+      //let는 값이 바뀔때, const는 정해졌있을때 고로 const사용이 옳음
+
+      $('.quick').css('top',$(window).height()/2-$('.quick').height()/2);
+      //화면 전체 길이 - quick메뉴 길이 /2 = 화면의 정가운데 들어감
+
+      $('.btn').click(function(){
+        let index = $(this).index();
+        let point = page.eq(index).offset().top;
+
+        $('html,body').stop().animate({scrollTop:point},1000);
+      });//btn_click_event
+      
+      $(window).scroll(function(){
+        let point = $(window).scrollTop()+($(window).height()/2-$('.quick').height()/2);
+        $('.quick').stop().animate({top:point},500);
+
+        let topPoint = $(window).scrollTop();
+        page.each(function(){
+          let index = $(this).index()
+          if($(this).offset().top -300 <= topPoint) {
+            btn.removeClass('on');
+            btn.eq(index).addClass('on');
+          }
+        });
+
+        //each = for , 무한반복
+      });//window_scroll_event
+      //point라는 변수는 지역변수이기에 또 사용할 수 있음
+
+    });//jqurey
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+
+    .quick {
+      position: absolute;
+      right: 0;
+    }
+    .quick div {
+      width: 150px; height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border: 1px solid black;
+      border-bottom: none;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+    .quick div:last-child {
+      border-bottom: 1px solid black;
+    }
+    .quick div.on a {
+      color: red;
+      font-weight: bold;
+    }
+    .quick div a {
+      display: block;
+      line-height: 50px;
+    }
+    .contents {}
+    .contents section {
+      width: 100%; height: 100vh;
+      box-sizing: border-box;
+      font-size: 100px;
+      display: flex;
+      justify-content: center;
+      
+    }
+    .contents #page01 {background-color: thistle;}
+    .contents #page02 {background-color: azure}
+    .contents #page03 {background-color: plum}
+    .contents #page04 {background-color: salmon}
+  </style>
+</head>
+<body>
+  <aside class="quick">
+    <div class="on"><a href="#page01">menu01</a></div>
+    <div><a href="#page02">menu02</a></div>
+    <div><a href="#page03">menu03</a></div>
+    <div><a href="#page04">menu04</a></div>
+  </aside>
+  <div class="contents">
+    <section id="page01">page01</section>
+    <section id="page02">page02</section>
+    <section id="page03">page03</section>
+    <section id="page04">page04</section>
+  </div>
+</body>
+</html>

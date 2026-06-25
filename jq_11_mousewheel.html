@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.2.2/jquery.mousewheel.min.js"></script>
+  <script>
+    $(function(){
+      /*
+      $('section').mousewheel(function(event, delta){
+        if(delta>=0) {//mousewheel을 위로 굴림
+          let prev = $(this).prev().offset().top;
+          $('html, body').stop().animate({scrollTop:prev},1000);
+        }else if(delta<0) {//mousewheel을 아래로 굴림
+          let next = $(this).next().offset().top;
+          $('html, body').stop().animate({scrollTop:next},1000);
+        }
+      });//mousewheel_event
+      */
+
+      let poing =0;
+      $('section').mousewheel(function(event, delta){
+        if(delta>=0) {
+          point = $(this).prev().offset().top;
+        }else if (delta<0) {
+          point = $(this).next().offset().top;
+        }
+        $('html, body').stop().animate({scrollTop:point},500);
+      });
+
+
+    });//jqurey
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    .wrap {}
+    .wrap section{
+      width: 100%; height: 100vh;
+      border: 1px solid black;
+      box-sizing: border-box;
+      font-size: 100px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section>page01</section>
+    <section>page02</section>
+    <section>page03</section>
+    <section>page04</section>
+  </div>
+</body>
+</html>
