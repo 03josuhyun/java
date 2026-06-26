@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      let cnt = 1;
+      
+      $('.btn').click(function(){
+        cnt++;
+        if(cnt>10) {
+          cnt = 10;
+          alert('최대 10개까지만 구매 가능합니다');
+        }
+        $('.count_box').text(cnt);
+      });
+
+      $('.btn_1').click (function(){
+        cnt--;
+        if(cnt<1){
+          cnt=1;
+          alert('최소 1개까지만 구매가능합니다');
+        }
+        $('.count_box').text(cnt);
+      });
+    });//jqurey
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    .btn {
+      width: 50px;
+    }
+    .btn_1 {
+      width: 50px;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn">+</button>
+  <p class="count_box">1</p>
+  <button class="btn_1">-</button>
+</body>
+</html>
