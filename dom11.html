@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      const userId = document.getElementById('user_id');
+      const userPw1 = document.getElementById('user_pw1');
+      const userPw2 = document.getElementById('user_pw2');
+      const btnPw =document.querySelector('.btn_pw');
+      const telSecond = document.getElementById('tel_second');
+      const telThird = document.getElementById('tel_third');
+      //박스이기때문에 const 사용가능
+
+      //userId.onchange = checkId;
+      //userPw1.onchange = checkPw;
+
+      userId.addEventListener('change', checkId);
+      userPw1.addEventListener('change',checkPw);
+      btnPw.addEventListener('click',comparePw);
+      telSecond.addEventListener('keyup',moveTel);
+      //keydown일 
+
+      function checkId (){
+        if(userId.value.length<5 || userId.value.length >16){
+          alert('사용할 수 없는 아이디입니다.');
+          userId.value = '';
+          userId.focus();
+          //강제로 focus해줌
+        }
+        //글자제한만 하고 있는데, 특수문자도 @,*도 안된다는 제한이 필요함, 영문자만 가능하다 라는 조건도 있음
+      }//checkId()
+      function checkPw(){
+        if(userPw1.value.length < 5) {
+          alert('사용할 수 없는 비밀번호입니다');
+          userPw1.select();
+        }//select의 기능 블럭이 잡혀 깜빡거림
+      }//checkPw()
+      function comparePw() {
+        if(userPw1.value !== userPw2.value){
+          alert('암호가 일치하지 않습니다.');
+        }
+      }//comparePw()
+      function moveTel() {
+        if(telSecond.value.length >= 4){
+          telThird.focus();
+        }
+      }//moveTel
+    });
+  </script>
+  <style>
+    /*--------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*---------------------------------------------*/
+  </style>
+</head>
+<body>
+  <div class="join">
+    <h2>회원가입</h2>
+    <form action="">
+      <ul>
+        <li>
+          <label for="user_id">아이디</label>
+          <input type="text" id="user_id" class="user_id" placeholder="5~16자 입력" required autofocus>
+        </li>
+        <li>
+          <label for="user_pw1">비밀번호</label>
+          <input type="text" id="user_pw1" class="user_pw1" placeholder="5글자 이상 입력" required>
+        </li>
+        <li>
+          <label for="user_pw2">비밀번호 확인</label>
+          <input type="text" id="user_pw2" class="user_pw2">
+          <button type="button" class="btn_pw">비밀번호 확인</button>
+        </li>
+        <li>
+          <label for="user_tel">전화번호</label>
+          <select name="" id="tel_first">
+            <option value="010">010</option>
+            <option value="051">051</option>
+          </select>
+          <span>-</span>
+          <input type="text" id="tel_second" size="8" maxlength="4">
+          <span>-</span>
+          <input type="text" id="tel_third" size="8" maxlength="4">
+        </li>
+      </ul>
+    </form><!--join_form-->
+  </div>
+</body>
+</html>

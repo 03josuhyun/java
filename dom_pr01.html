@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pr</title>
+  <script>
+    window.onload = function () {
+      document.getElementById('box01').style.color = 'red';
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('box01').style.backgroundColor = 'blue';
+      document.getElementsByClassName('box02')[0].style.backgroundColor = '#ccc';
+      document.getElementsByTagName('li')[0].style.color = 'brown';
+
+      document.querySelector('#box01').style.fontWeight = 'bold';
+      document.querySelector('.box02').style.color = 'purple';
+      document.querySelectorAll('.box03 li')[1].style.color = 'orange';
+
+      const li = document.querySelectorAll('.box03 li');
+      for (let i = 0; i < li.length; i++) {
+        li[2].style.color = 'green';
+      }
+      li.forEach(function (value) {
+        value.style.backgroundColor = '#eee';
+      });
+
+      const showBtn = document.querySelector('.show_btn');
+      const hiddenBtn = document.querySelector('.hidden_btn');
+      const textBox = document.querySelector('.box');
+
+      showBtn.onclick = showBox;
+      hiddenBtn.onclick = hiddenBox;
+      function showBox() {
+        textBox.style.display = 'block';
+      }
+      function hiddenBox() {
+        textBox.style.display = 'none';
+      }
+
+      const btn = document.querySelector('.box05 .btn');
+      const Text = document.querySelector('.box05 .text');
+
+      let state = false;
+      btn.addEventListener('click', function () {
+        if (state) {
+          Text.style.display = 'none';
+          state = false;
+        } else {
+          Text.style.display = 'block';
+          state = true;
+        }
+      });
+
+      const btn01 = document.querySelector('.box06 .btn01');
+      const text01 = document.querySelector('.box06 .text01');
+
+      btn01.onclick = function () {
+        if (text01.classList.contains('dark_mode')) {
+          text01.classList.remove('dark_mode');
+          btn01.textContent = '다크모드';
+        } else {
+          text01.classList.add('dark_mode');
+          btn01.textContent = '라이트모드';
+        }
+      }
+
+      const welcome = document.querySelector('.box07 .welcome');
+      const bye = document.querySelector('.box07 .bye');
+      const text02 = document.querySelector('.box07 .text02');
+
+      welcome.addEventListener('click', () => {
+        text02.style.color = 'pink';
+        text02.innerText = '방문을 환영합니다'
+      });
+      bye.addEventListener('click', () => {
+        text02.innerHTML = '<a href = "http://www.naver.com">다음에 또 방문해 주세요~</a>';
+        document.querySelector('.box07 .text02 a').style.color = 'skyblue';
+      });
+
+      const btn02 = document.querySelector('.box08 .btn02');
+      const detailText = document.querySelector('.box08 .detail_text');
+
+      let isOpen = false;
+
+      btn02.addEventListener('click', () => {
+        if (isOpen === false) {
+          detailText.style.display = 'block';
+          btn02.innerContent = '상세설명닫기';
+          isOpen = true;
+        } else {
+          detailText.style.display = 'none';
+          btn02.innerContent = '상세설명보기';
+          isOpen = false;
+        }
+      });
+
+      const img = document.querySelector('.box09 img');
+
+      img.addEventListener('mouseover', () => {
+        img.setAttribute('src', './img/summer_on.jpg');
+      });
+      img.addEventListener('mouseout', () => {
+        img.setAttribute('src', './img/summer_off.jpg');
+      });
+
+      const mainImg = document.querySelector('.box10 .main_img > img');
+      const thumImg = document.querySelectorAll('.box10 .thumnail_img > li');
+
+      for (let i in thumImg) {
+        thumImg[i].onclick = mainBox;
+      }
+      function mainBox() {
+        let imgSrc = this.children[0].src;
+        mainImg.setAttribute('src', imgSrc);
+      }
+
+      let newDiv = document.createElement('div');
+      let newText = document.createTextNode('Hello!, everyone!');
+
+      newDiv.appendChild(newText);
+      document.body.appendChild(newDiv);
+      newDiv.setAttribute('class', 'font');
+
+      let id = 'green';
+      let pw = 'g1234';
+      let userId = document.querySelector('.user_id');
+      let userPw = document.querySelector('.user_pw');
+      let btnLog = document.querySelector('.btn_log');
+      let chkInfo = document.getElementById('chk_info');
+
+      btnLog.addEventListener('click', () => {
+        if (userId.value == id) {
+          if (userPw.value == pw) {
+            alert('방문을 환영합니다')
+          } else {
+            alert('암호가 틀렸습니다')
+          }
+        } else {
+          alert('존재하지 않는 아이디입니다')
+        }
+      });
+
+      chkInfo.addEventListener('click', () => {
+        if (chkInfo.checked === true) {
+          document.getElementById('deli_name').value = document.getElementById('user_name').value;
+          document.querySelector('.deli_tel').value = document.querySelector('.user_tel').value;
+          document.getElementById('deli_addr').value = document.getElementById('user_addr').value;
+        } else {
+          document.getElementById('deli_name').value = '';
+          document.querySelector('.deli_tel').value = '';
+          document.getElementById('deli_addr').value = '';
+        }
+      });//chkInfo
+
+      const userId01 = document.getElementById('user_id01');
+      const userPw01 = document.getElementById('user_pw01');
+      const userPw02 = document.getElementById('user_pw02');
+      const btnPw = document.querySelector('.btn_pw');
+      const telSecond = document.getElementById('tel_second');
+      const telThird = document.getElementById('tel_third');
+
+      userId01.addEventListener('change',checkId);
+      userPw01.addEventListener('change',checkPw);
+      btnPw.addEventListener('click',comparePw);
+      telSecond.addEventListener('keyup',moveTel);
+
+      function checkId(){
+        if(userId01.value.length<5 || userId01.value.length>16){
+          alert('사용할 수 없는 아이디입니다');
+          userId01.value = '';
+          userId01.focus();
+        }
+      }
+      function checkPw (){
+        if(userPw01.value.length<5){
+          alert('사용할 수 없는 비밀번호입니다');
+          userPw01.select();
+        }
+      }
+      function comparePw(){
+        if(userPw01.value !== userPw02.value) {
+          alert('암호가 일치하지 않습니다');
+        }
+      }
+      function moveTel() {
+        if(telSecond.value.length >= 4){
+          telThird.focus();
+        }
+      }
+      const fruits = document.selectForm.fruits;
+      fruits.addEventListener('change',()=>{
+        let fruitName = fruits.options[fruits.selectedIndex].innerText;
+        document.getElementById('name').value = fruitName;
+      });
+      const family = document.getElementById('family');
+      family.addEventListener('change', function(event){
+        let option = event.currentTarget.options;
+        let index = option.selectedIndex;
+
+        location.href = option[index].value;
+      });
+
+      const totalTerms = document.getElementById('total_terms');
+      const termsEls = document.querySelectorAll('.terms_el');
+      const terms01 = document.getElementById('terms01');
+      const terms02 = document.getElementById('terms02');
+      const terms03 = document.getElementById('terms03');
+
+      totalTerms.addEventListener('click', totalCheck);
+      terms01.addEventListener('click',termsCheck);
+      terms02.addEventListener('click',termsCheck);
+      terms03.addEventListener('click',termsCheck);
+
+      function totalCheck() {
+        /*
+        if(totalTerms.checked === true){
+          terms01.checked = true;
+          terms02.checked = true;
+          terms03.checked = true;
+        }else {
+          terms01.checked = false;
+          terms02.checked = false;
+          terms03.checked = false;
+        }
+        */
+       /*
+       if(totalTerms.checked){
+        for(let termsEl of termsEls){
+          termsEl.checked = true;
+        }
+       }else {
+        for(let termsEl of termsEls){
+          termsEl.checked = false;
+        }
+       }
+       */
+
+       if(totalTerms.checked === true){
+        termsEls.forEach(termsEl =>{
+          termsEl.checked = true;
+        });
+       }else {
+        termsEls.forEach(termsEl =>{
+          termsEl.checked = false;
+        });
+       }
+       function termsCheck(){
+        if(terms01.checked && terms02.checked && terms03.checked){
+          totalTerms.checked = true;
+        }else {
+          totalTerms.checked = false;
+        }
+       }
+      }
+    });
+  </script>
+  <style>
+    /*--------------default_setting---------------*/
+    * {margin: 0; padding: 0;}
+    li {list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*--------------------------------------------*/
+    .box {
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+      background-color: #ccc;
+      text-align: center;
+      line-height: 300px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .text {
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+      background-color: #eee;
+      text-align: center;
+      line-height: 300px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .btn01 {
+      margin-top: 20px;
+      width: 500px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      border-radius: 20px;
+      border: 1px solid black;
+    }
+
+    .text01 {
+      width: 500px;
+      height: 300px;
+      border: 1px solid black;
+      margin-top: 10px;
+      background-color: white;
+      color: black;
+    }
+
+    .dark_mode {
+      background-color: black;
+      color: white;
+    }
+
+    .welcome,
+    .bye {
+      width: 250px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      margin-top: 20px;
+      border-radius: 20px;
+      border: 1px solid black;
+    }
+
+    .text02 {
+      width: 500px;
+      height: 300px;
+      text-align: center;
+      line-height: 300px;
+      border: 1px solid black;
+      font-size: 30px;
+      margin-top: 10px;
+    }
+
+    .box08 {
+      width: 500px;
+      margin-top: 20px;
+    }
+
+    .box08 .detail_img img {
+      display: block;
+      width: 100%;
+    }
+
+    .box08 .detail_text {
+      display: none;
+    }
+
+    .box08 .btn02 {
+      width: 500px;
+      height: 30px;
+      border: 1px solid black;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 30px;
+      margin-top: 10px;
+    }
+
+    .box09 img {
+      margin-top: 20px;
+      width: 500px;
+    }
+
+    .box10 {
+      width: 500px;
+      margin-top: 20px;
+    }
+
+    .box10 .main_img img {
+      width: 100%;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .box10 .thumnail_img {
+      display: flex;
+    }
+
+    .box10 .thumnail_img li {
+      width: 25%;
+      margin: 10px 5px;
+    }
+
+    .box10 .thumnail_img li img {
+      width: 100%;
+      display: block;
+    }
+
+    .font {
+      width: 500px;
+      font-size: 50px;
+      color: red;
+      background-color: #ccc;
+    }
+
+    .box11 {
+      background-color: #eee;
+      margin-bottom: 20px
+    }
+
+    .box12 {
+      background-color: aliceblue;
+      margin-bottom: 10px;
+    }
+    .box13 {
+      background-color: cornsilk;
+      padding-bottom: 50px;
+    }
+    .box14 {
+      background-color: honeydew;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box01">Text_box01</div>
+  <div class="box02">Text_box02</div>
+  <ul class="box03">
+    <li>box03_1</li>
+    <li>box03_2</li>
+    <li>box03_3</li>
+  </ul>
+  <div class="box04">
+    <button class="show_btn">show</button>
+    <button class="hidden_btn">hidden</button>
+
+    <p class="box">Text_box</p>
+  </div><!--box04-->
+  <div class="box05">
+    <button class="btn">Click</button>
+    <div class="text">Text_box</div>
+  </div><!--box05-->
+
+  <div class="box06">
+    <button class="btn01">다크모드</button>
+    <div class="text01 dark_mode">
+      What is Lorem Ipsum? <br>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+      standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride
+      Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body
+      Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining
+      essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing
+      software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.
+    </div>
+  </div><!--box06-->
+  <div class="box07">
+    <button class="welcome">Welcome</button>
+    <button class="bye">Bye</button>
+
+    <div class="text02">버튼을 눌러주세요!</div>
+  </div><!--box07-->
+  <div class="box08">
+    <div class="detail_img">
+      <img src="./img/spring.jpg" alt="대표이미지">
+    </div>
+    <div class="detail_text">
+      <h3> 봄의 향기</h3>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride
+        Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's
+        Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop
+        publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.
+      </p>
+    </div>
+    <button class="btn02">상세설명보기</button>
+  </div><!--box08-->
+  <div class="box09">
+    <img src="./img/summer_off.jpg" alt="mouse_out">
+  </div><!--box09-->
+  <div class="box10">
+    <h3>사계절</h3>
+    <div class="main_img">
+      <img src="./img/spring.jpg" alt="">
+    </div>
+    <ul class="thumnail_img">
+      <li><img src="./img/spring.jpg" alt=""></li>
+      <li><img src="./img/summer.jpg" alt=""></li>
+      <li><img src="./img/fall.jpg" alt=""></li>
+      <li><img src="./img/winter.jpg" alt=""></li>
+    </ul>
+  </div><!--box10-->
+  <div class="box11">
+    <h1>로그인</h1>
+    <form action="" name="logIn">
+      <div class="log_in">
+        <label for=""> 아이디 : </label>
+        <input type="text" name="user_id" id="user_id" class="user_id" placeholder="아이디 입력" required autofocus>
+      </div>
+      <label for=""> 암호 : </label>
+      <input type="text" name="user_pw" id="user_pw" class="user_pw" placeholder="비밀번호 입력" required>
+      <br>
+      <button type="button" class="btn_log">로그인</button>
+    </form><!--로그인-->
+    <hr>
+    <form action="" name="order">
+      <fieldset>
+        <legend>주문정보</legend>
+        <ul>
+          <li>
+            <label for="user_name">이름 : </label>
+            <input type="text" id="user_name">
+          </li>
+          <li>
+            전화번호 : <input type="text" class="user_tel">
+          </li>
+          <li>
+            <label for="user_addr">주소 : </label>
+            <input type="text" id="user_addr">
+          </li>
+        </ul>
+      </fieldset><!--주문정보-->
+      <fieldset>
+        <legend>배송정보</legend>
+        <ul>
+          <li>
+            <input type="checkbox" id="chk_info">
+            <label for="chk_info">주문정보와 배송정보가 같습니다</label>
+          </li>
+          <li>
+            <label for="deli_name">이름 : </label>
+            <input type="text" id="deli_name">
+          </li>
+          <li>
+            전화번호 : <input type="text" class="deli_tel">
+          </li>
+          <li>
+            <label for="deli_addr">주소 : </label>
+            <input type="text" id="deli_addr">
+          </li>
+        </ul>
+      </fieldset><!--배송정보-->
+    </form><!--order-->
+  </div><!--box11-->
+  <div class="box12">
+    <h2>회원가입</h2>
+    <form action="">
+      <ul>
+        <li>
+          <label for="user_id01">아이디</label>
+          <input type="text" id="user_id01" class="user_id" placeholder="5~16자 입력" required autofocus>
+        </li>
+        <li>
+          <label for="user_pw01">비밀번호</label>
+          <input type="text" id="user_pw01" class="user_pw01" placeholder="5글자 이상 입력" required>
+        </li>
+        <li>
+          <label for="user_pw02">비밀번호 확인</label>
+          <input type="text" id="user_pw02" class="user_pw02">
+          <button type="button" class="btn_pw">비밀번호 확인</button>
+        </li>
+        <li>
+          <label for="user_tel01">전화번호</label>
+          <select name="" id="tel_first">
+            <option value="010">010</option>
+            <option value="051">051</option>
+          </select>
+          <span>-</span>
+          <input type="text" id="tel_second" size="8" maxlength="4">
+          <span>-</span>
+          <input type="text" id="tel_third" size="8" maxlength="4">
+        </li>
+      </ul>
+    </form>
+  </div><!--box12-->
+  <div class="box13">
+    <form action="" name="selectForm">
+      <fieldset>
+        <legend>내가 좋아하는 것들</legend>
+        <ul>
+          <li>
+            <label for="name">선택한 과일이름 : </label>
+            <input type="text" id="name">
+          </li>
+          <li>
+            <label for="fruits">과일</label>
+            <select name="fruits" id="fruits">
+              <option value="">----선택----</option>
+              <option value="apple">사과</option>
+              <option value="melon">참외</option>
+              <option value="banana">바나나</option>
+            </select>
+          </li>
+          <li>
+            <label for="family">패밀리 사이트</label>
+            <select name="family" id="family">
+              <option value="">----패밀리 사이트----</option>
+              <option value="https://www.naver.com">
+                네이버
+              </option>
+              <option value="https://www.nate.com">
+                네이트
+              </option>
+              <option value="https://www.daum.net">
+                다음
+              </option>
+            </select>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+  </div><!--box13-->
+  <div class="box14">
+    <fieldset>
+      <legend>약관동의</legend>
+      <ul>
+        <li>
+          <input type="checkbox" id="total_terms">
+          <label for="total_terms">전체약관 동의</label>
+        </li>
+        <li>
+          <input type="checkbox" id="terms01" class="terms_el">
+          <span>첫번째 약관동의</span>
+        </li>
+        <li>
+          <input type="checkbox" id="terms02" class="terms_el">
+          <span>두번째 약관동의</span>
+        </li>
+        <li>
+          <input type="checkbox" id="terms03" class="terms_el">
+          <span>세번째 약관동의</span>
+        </li>
+      </ul>
+    </fieldset>
+  </div>
+</body>
+
+</html>

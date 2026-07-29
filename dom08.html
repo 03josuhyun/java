@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js08</title>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      const mainImg = document.querySelector('.main_img > img');
+      const thumImg = document.querySelectorAll('.thumnail_img > li');
+      //li이는 두개 이상이기에 all로, li img는 for,this 사용하기 힘듦
+
+      // for(let i=0; i<thumImg.length; i++){
+      //   thumImg[i].addEventListener('click',function(){
+      //     mainImg.src = this.children[0].src
+      //   });//자식은 배열로 표현
+      // }
+
+      for(let i in thumImg) {
+        thumImg[i].onclick = mainBox;
+      }//in은 배열 전용 for가 in, thumImg 배열안에 
+      function mainBox () {
+        let imgSrc = this.children[0].src;
+        mainImg.setAttribute('src',imgSrc);
+      }
+    });
+  </script>
+  <style>
+    /*---------------default_setting--------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    img {display: block; width: 100%; height: auto;}
+    /*--------------------------------------------*/
+    .container {
+      width: 500px;
+    }
+    .container .thumnail_img {
+      display: flex;
+    }
+    .container .thumnail_img li {
+      margin: 10px 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3>Front_End</h3>
+    <div class="main_img">
+      <img src="./img/spring.jpg" alt="main_img">
+    </div>
+    <ul class="thumnail_img">
+      <li><img src="./img/spring.jpg" alt="thumnail_img01"></li>
+      <li><img src="./img/summer.jpg" alt="thumnail_img02"></li>
+      <li><img src="./img/winter.jpg" alt="thumnail_img03"></li>
+    </ul>
+  </div>
+</body>
+</html>

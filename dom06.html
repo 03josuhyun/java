@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js06</title>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      const btn = document.querySelector('.btn');
+      const detailText = document.querySelector('.detail_text');
+
+      let isOpen = false;
+      //is를 붙이면 묵시적으로 true or false를 가지고 있는 변수라고 알 수 있음, 꼭 쓸 필요는 없음
+
+      btn.addEventListener('click', () => {
+        if(isOpen === false){
+          detailText.style.display = 'block';
+          btn.textContent = '상세설명닫기';
+          isOpen = true;
+        } else {
+          detailText.style.display = 'none';
+          btn.textContent = '상세설명보기';
+          isOpen = false;
+        }
+      })
+    });
+  </script>
+  <style>
+    /*-------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*--------------------------------------------*/
+    .detail {
+      width: 500px;
+    }
+    .detail .detail_img img {
+      display: block;
+      width: 100%;
+    }
+    .detail .detail_text {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="detail">
+    <div class="detail_img">
+      <img src="./img/winter.jpg" alt="대표이미지">
+    </div>
+    <div class="detail_text">
+      <h3>Front_End</h3>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.
+      </p>
+    </div>
+    <button class="btn">상세설명보기</button>
+  </div>
+</body>
+</html>

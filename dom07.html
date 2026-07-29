@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js07</title>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      const img = document.querySelector('.thumnail img');
+
+      // img.onmouseover = overImg; setOverImg
+      // img.onmouseout = outImg; setOutImg
+
+      // function overImg () {
+      //   img.src = './img/spring_on.jpg';
+      // }
+      // function outImg () {
+      //   img.src = './img/spring_off.jpg';
+      // }
+
+      img.addEventListener('mouseover', () => {
+        img.setAttribute('src', './img/spring_on.jpg');
+      });
+      img.addEventListener('mouseout',()=> {
+        img.setAttribute('src','./img/spring_off.jpg');
+      });//set함수, get함수
+    });
+  </script>
+  <style>
+    /*---------------default_setting--------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*--------------------------------------------*/
+  </style>
+</head>
+<body>
+  <div class="thumnail">
+    <img src="./img/spring_off.jpg" alt="mouse_out">
+  </div>
+</body>
+</html>

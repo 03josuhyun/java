@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js05</title>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      const welcome = document.querySelector('.welcome');
+      const bye = document.querySelector('.bye');
+      const text = document.querySelector('.text');
+      
+      welcome.addEventListener('click',function(){
+        text.style.color = 'red';
+        //text.textContent = '방문을 환영합니다.'
+        text.innerText = '방문을 환영합니다.'
+      });//welcome
+      bye.addEventListener('click', () => {
+        text.innerHTML = '<a href= "http://www.naver.com">다음에 또 방문해 주세요~</a>';
+        document.querySelector('.text a').style.color = 'blue';
+      });//bye
+      //a href = 동적 콘텐츠, 기존에 있는 것이 아니기때문에 다시 선언해줘야한다.
+    });
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    .text {
+      width: 500px; height: 300px;
+      border: 1px solid black;
+      text-align: center;
+      line-height: 300px;
+      font-size: 30px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <button class="welcome">welcome</button>
+  <button class="bye">bye</button>
+
+  <div class="text">버튼을 눌러주세요!</div>
+</body>
+</html>

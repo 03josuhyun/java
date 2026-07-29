@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js04</title>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      const btn = document.querySelector('.btn');
+      const text = document.querySelector('.text');
+
+      btn.onclick = function(){
+        if(text.classList.contains('dark_mode')){
+          text.classList.remove('dark_mode');
+          btn.textContent = '다크모드';
+        }else {
+          text.classList.add('dark_mode');
+          btn.textContent = '라이트모드';
+        }
+      }//바로 함수를 놓을 수있다. 호출할 필요가 없다., 클래스 명을 적어야함
+    });
+  </script>
+  <style>
+    /*--------------default_setting--------------*/
+    * {margin: 0; padding: 0;}
+    /* li{list-style: none;}
+    a {color: black; text-decoration: none;} */
+    /*-------------------------------------------*/
+    .btn {
+      width: 300px; height: 30px;
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+      border-radius: 20px;
+      text-align: center;
+      line-height: 30px;
+    }
+    .text {
+      width: 600px; height: 300px;
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+      text-align: justify;
+      text-indent: 16px;
+      margin-top: 10px;
+    }
+    .dark_mode {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn">다크모드</button>
+  <div class="text dark_mode">
+    What is Lorem Ipsum?
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.
+  </div>
+</body>
+</html>

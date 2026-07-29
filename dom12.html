@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom12</title>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      const fruits = document.selectForm.fruits;
+      //select까지 선택, 선택자 명령어가 필요가없다
+      //변수 처리안하면 길고 복잡함
+      fruits.addEventListener('change',() => {
+        let fruitName = fruits.options[fruits.selectedIndex].innerText;
+        //innerText로 받음
+        document.getElementById('name').value = fruitName;
+        //textContent, innterText는 div 등 이면 됨
+        //input박스는 안에 있는건 value로 받아야함(닫는 태그 가없어 자식텍스트가 없기에 빈 요소로 나옴)
+      });
+      //거의 안쓰는
+
+      const family = document.getElementById('family');
+      // family.addEventListener('change', function(){
+      //   let option = this.options;
+      //   //this를 사용하면 화살표 함수 사용 불가
+      //   let index = option.selectedIndex;
+
+      //   location.href = option[index].value;
+      // });
+      
+      family.addEventListener('change', function(event){
+        let option = event.currentTarget.options;
+        let index = option.selectedIndex;
+
+        location.href = option[index].value;
+      });//reat에서 자주 사용될
+    });
+  </script>
+  <style>
+    /*---------------default_setting---------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*---------------------------------------------*/
+  </style>
+</head>
+<body>
+  <form action="" name="selectForm">
+    <fieldset>
+      <legend>내가 좋아하는 것들</legend>
+      <ul>
+        <li>
+          <label for="name">선택한 과일이름 : </label>
+          <input type="text" id="name">
+        </li>
+        <li>
+          <label for="fruits">과일</label>
+          <select name="fruits" id="fruits">
+            <option value="">---------선택--------</option>
+            <option value="apple">사과</option>
+            <option value="pear">참외</option>
+            <option value="ban">바나나</option>
+          </select>
+        </li>
+        <li>
+          <label for="family">패밀리 사이트</label>
+          <select name="family" id="family">
+            <option value="">------패밀리 사이트-------</option>
+            <option value="https://www.naver.com">Naver</option>
+            <option value="https://www.nate.com">Nate</option>
+            <option value="https://www.daum.net">Daum</option>
+          </select>
+        </li>
+      </ul>
+    </fieldset>
+  </form><!--selectform-->
+</body>
+</html>
