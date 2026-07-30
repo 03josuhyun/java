@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script>
+    //배열(array):unshift()/push()/shift()/pop()/splice() => 삽입, 삭제, 수정
+
+    // const arr = new Array();
+    // arr[0] = 23;
+    // arr[1] = 50;
+    // arr[2] = 20;
+    // arr[3] = 13;
+    // arr[arr.length] = 50;
+    
+    // for(let i=0;i<arr.length;i++){
+    //   document.write(arr[i],'<br>');
+    // }
+    //length를 사용해서 데이터의 길이를 알수있는 예약어
+
+    // const arr = new Array(23, 50, 20, 12, 13, 50);
+    // for(let i=0; i<arr.length;i++){
+    //   document.write(`${arr[i]}<br>`)
+    // }
+    //삽입, 삭제가 더 쉬워짐
+
+    // const arr = [23, 50, 20, 16];
+    // for(let i in arr) {
+    //   document.write(`${arr[i]}<br>`);
+    // }
+    //in은 첨자를 사용해야함
+
+    // for(let value of arr){
+    //   document.write(`${value}<br>`)
+    // }
+    //of는 arr의 값을 쓸때 사용해야함, 대신에 of을 쓸때만 첨자를 사용하지 않음
+    // document.write(arr[0]);
+
+    const fruits = ['apple', 'banana', 'mango', 'melon'];
+    for(let i in fruits){
+      document.write(`${fruits[i]}`, '&nbsp;&nbsp;');
+    }
+    document.write('<br><br>');
+    fruits[0] = 'orange';
+    //오버로딩으로 인해 apple이 삭제됨, shift는 왼쪽으로 밀어버리기 때문에 삭제됨
+    fruits.unshift('orange2');
+    //unshift는 오른쪽으로 밀어버리기때문에 추가됨
+    fruits.push('strawbarry');
+    //push는 배열 데이터 뒤에 새로운 데이터를 삽입함
+
+    fruits.shift();
+    //shift는 제일 앞에걸 삭제함
+    fruits.pop();
+    //pop은 제일 뒤에 있는걸 삭제함
+
+    // fruits.splice(2,1);
+    //splice(index번호,삭제갯수) 따라서 index[2]에서 1개만 삭제함
+    let index = fruits.indexOf('mango');
+    //중요함 ★
+    fruits.splice(index,1);
+    fruits.splice(index, 0, 'kewi');
+    //중간에 삽입하는 것, 삽입은 기본적으로 한개만 되기때문에 0
+    for (let fruit of fruits){
+      document.write(fruit, '&nbsp;&nbsp;');
+    }
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+  </style>
+</head>
+<body>
+  
+</body>
+</html>

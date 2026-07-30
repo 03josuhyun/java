@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script>
+    const arr = new Array();
+    arr[0] = 11;
+    arr[1] = 21;
+    arr[2] = 35;
+    arr[3] = 49;
+    arr[arr.length] = 50; 
+    for(let i=0; i<arr.length; i++){
+      document.write(arr[i],'<br>', '&nbsp;&nbsp;');
+    }
+
+    const arr01 = new Array (80, 75, 90, 68, 33);
+    for(let i=0; i<arr01.length; i++){
+      document.write(`${arr01[i]} <br>`)
+    }
+
+    const arr02 = [23, 50, 20, 16];
+    for(let i in arr02){
+      document.write(`${arr02[i]}<br>`,'&nbsp;&nbsp;');
+    }
+
+    const arr03 = [24, 55, 80, 77];
+    for(let value of arr03){
+      document.write(`${value}<br>`)
+    }
+
+    const fruits = ['apple','kewi','mango','melon'];
+    for(let i in fruits){
+      document.write(`${fruits[i]}`, '&nbsp; &nbsp;');
+    }
+    document.write('<br><br>');
+    fruits[0] = 'orange';
+
+    fruits.unshift('orange02');
+
+    fruits.push('strawbarry');
+
+    fruits.shift();
+
+    fruits.pop();
+    
+    let index = fruits.indexOf('mango');
+
+    fruits.splice(index, 1);
+    fruits.splice(index,0, 'banana');
+
+    for(let fruit of fruits){
+      document.write(fruit, '&nbsp;&nbsp;');
+    }
+
+    const str = 'Hello,JavaScript!';
+    document.write(str, '<br>');
+    document.write(str[4],'<br>');
+    document.write(str[str.length-1],'<br>');
+    
+    // let userName = prompt('아이디 입력(대소문자 구분없이 입력)');
+    // let upperName = userName.toUpperCase();
+    // document.write(upperName);
+
+    // let userName01 = prompt('아이디 입력(대소문자 구분없이 입력)');
+    // let lowerName = userName01.toLowerCase();
+    // document.write(lowerName);
+
+    // let userTel = prompt('전화번호 입력(-없이 숫자만 입력)');
+    // let result = userTel.substring(0,3)+ '-' + userTel.substring(3,7)+ '-' + '****';
+    // document.write(result,'<br>');
+
+    let userEmail = prompt('이메일 주소 입력(abcd@abcd.com형식)');
+    let arrUrl = ['.co.kr','.com','.go.kr','.or.kr'];
+    let check1 = false;
+    let check2 = false;
+
+    if(userEmail.indexOf('@')>= 0){
+      check1 = true;
+    }
+    for(let i=0;i<arrUrl.length;i++){
+      if(userEmail.indexOf(arrUrl[i])>0)check2 = true;
+    }
+    if(check1 && check2){
+      document.write(userEmail);
+    }else {
+      alert('잘못된 이메일 주소입니다.');
+    }
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+  </style>
+</head>
+<body>
+  
+</body>
+</html>
