@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script>
+    document.addEventListener('DOMContentLoaded' , function(){
+      // const btnStart = document.querySelector('.btn_start');
+      // const btnStop = document.querySelector('.btn_stop');
+      // const viewBox = document.querySelector('.view_box');
+
+      // let timer;
+      //전역변수로 선언해야 이벤트가 실행과 멈출 수 있다.
+      // let cnt = 0;
+
+      // btnStart.addEventListener('click',()=> {
+      //   timer = setInterval(function(){
+      //     cnt++;
+      //     viewBox.textContent = cnt;
+      //   },1000);
+      // })//btnStart
+      // btnStop.addEventListener('click',()=>{
+      //   clearInterval(timer);
+      // });
+      //setInterval()/setTimeout()/clearInterval()
+
+      let cnt = 1;
+      let timer = setInterval(()=>{
+        document.write(cnt, '<br>');
+        cnt++;
+
+        // if(cnt === 6){
+        //   document.write('타이머 종료');
+        //   clearInterval(timer);
+        // }
+        
+      },1000);
+      //timer 실행함수, 1초마다 실행
+      //실행문과 함께 시간이 들어감
+
+      setTimeout(function(){
+        document.write('타이머 종료');
+        clearInterval(timer);
+      },5000);
+      //5초후에 한번만 실행, 이벤트 할 경우 timeout을 사용
+      //timer 종료함수
+
+      
+    });//DOMContentLoaded
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    .btn {
+      width: 100px; height: 30px;
+      margin: 30px 20px;
+    }
+    .view_box {
+      
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+      background-color: cadetblue;
+      font-size: 30px;
+      text-align: center;
+      line-height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <!-- <button class="btn_start btn">Start</button>
+  <button class="btn_stop btn">Stop</button>
+  <div class="view_box">0</div> -->
+</body>
+</html>
