@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>date_binding</title>
+  <script type="module" src="./js/main.js" defer></script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    .wrap {
+      width: 1070px;
+      margin: 0 auto;
+    }
+    .wrap .best_product {
+      width: 1070px;
+      background-color: #eee;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 auto;
+    }
+    .wrap .best_product .best_box {
+      width: 260px;
+      border: 1px solid black;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .wrap .best_product .best_box .best_img {
+      width: 260px; height: 260px;
+    }
+    .wrap .best_product .best_box .best_img img {
+      width: 100%; height: auto;
+    }
+    .wrap .best_product .price {
+      color: blue;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2>Best 상품</h2>
+    <section class="best_product">
+      
+    </section>
+  </div>
+</body>
+</html>

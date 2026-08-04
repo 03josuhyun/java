@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todo_list</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const btnAdd = document.querySelector('.btn_add');
+
+      btnAdd.addEventListener('click',()=>{
+        const subject = document.querySelector('.subject');
+        const subjectList = document.querySelector('.subject_list')    
+        
+        let newP = document.createElement('p');
+        let newText = document.createTextNode(subject.value);
+
+        newP.appendChild(newText);
+        // subjectList.appendChild(newP);
+
+        let newSpan = document.createElement('span');
+        let spanText = document.createTextNode('X');
+
+        newSpan.appendChild(spanText);
+        newP.appendChild(newSpan);
+
+        newSpan.setAttribute('class', 'delete');
+        //subjectList.appendChild(newP);
+        // insetBefore(추가노드,기준노드)
+
+        if(subject.value){
+          subjectList.insertBefore(newP,subjectList.children[0]);
+        }else {
+          alert('리스트가 추가되어야 합니다.')
+        }
+        //배열로 들어옴
+
+        subject.value = '';
+        subject.focus();
+        //나 자신을 지울 순 없고, 나의 부모의 노드에서 지워야함
+
+        const btnDel = document.querySelectorAll('.delete');
+        for(let i=0;i<btnDel.length;i++){
+          btnDel[i].addEventListener('click',function(){
+            if(btnDel[i].parentNode.parentNode){
+              this.parentNode.parentNode.removeChild(this.parentNode);
+            }
+          });
+        }
+      });//
+      //바닐라 js, 하드코딩
+    })
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    .delete {
+      margin-left: 100px;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+    .delete:hover {
+      opacity: 1;
+      font-weight: bolder;
+    }
+  </style>
+</head>
+<body>
+    <div class="todo_box">
+      <h2>Front_end Subject List</h2>
+      <form action="">
+        <input type="text" class="subject" placeholder="과목이름" autofocus>
+        <button class="btn_add" type="button">추가</button>
+      </form>
+      <br>
+      <hr>
+      <br>
+      <div class="subject_list"></div><!--subject_list-->
+    </div><!--todo_box-->
+</body>
+</html>
