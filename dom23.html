@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom23</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    /*
+    function order(){
+      let menu = 'coffee';
+      return new Promise((resolve, reject)=> resolve(menu));
+    }
+    function display(result){
+      return new Promise((resolve, reject)=> resolve(`Thank you, ${result}`));
+    }
+    order()
+    .then(display)
+    .then(console.log);
+    */
+
+    /*
+    async function order() {
+      let menu = 'coffee';
+      return menu;
+    }
+    async function display(result) {
+      return(`Thank you, ${result}`)     
+    }
+    order()
+    .then(display)
+    .then(console.log);
+    */
+    //async = Promise의 resolve
+
+    async function order() {
+      let menu = 'coffee';
+      return menu;
+    }
+    async function display(result) {
+      return `Thank you, ${result}`;
+    }
+    async function init() {
+      const response = await order();
+      const result = await display(response);
+      console.log(result);
+    }
+    init();
+    //처음 실행 init
+    //async-await 짝지, await = resolve역할 + then역할
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+  </style>
+</head>
+<body>
+  
+</body>
+</html>

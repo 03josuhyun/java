@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>don22</title>
+  <script>
+    //동기식 vs 비동기식 처리
+    /*
+     function testA (){
+       console.log('testA');
+     }//동기식 처리
+     // function testB (){
+     //   console.log('testB');
+     // }
+     function testB (){
+       setTimeout(()=>{
+         console.log('testB');
+       },2000);
+     }//비동기식 처리
+     function testC (){
+       console.log('testC');
+     }//동기식 처리
+     testA();
+     testB();
+     testC();
+    */
+
+    //callback : 함수를 호출하는 것, 비동기식 처리를 위해서는 실행 순서를 조절해야함
+    //콜백함수를 통한 비동기식 처리
+    //함수의 인수로 함수를 전달할 수 있다, 먼저 실행도 뒤에 실행도 가능함
+    /*
+    function testA (){
+      console.log('testA');
+    }
+    function testB (callback){
+      setTimeout(()=>{
+        console.log('testB');
+        callback();
+      },2000);
+    }//testB, testC
+    function testB (callback){
+      setTimeout(()=>{
+        callback();
+        console.log('testB');
+      },2000);
+    }//testC, testB
+    function testC (){
+      console.log('testC');
+    }
+    testA();
+    testB(testC);
+    */
+    // ★중요 
+    /*
+    function order(coffee, callback){
+      console.log(`${coffee} 주문확인 중...`);
+      setTimeout(()=>{
+        callback(coffee);
+      },3000);
+    }
+    function display (result) {
+      console.log(`${result} 주문 접수`);
+    }
+    order('아메리카노', display);
+    */
+    /*
+    let orderCoffee = true;
+    const coffee = new Promise((resolve, reject) => {
+      if(orderCoffee){
+        resolve('커피주문');
+      }else {
+        reject('커피 주문 안함');
+      }
+    });
+    coffee
+    .then((result)=> {console.log(result)})
+    .catch((error)=>{console.log(error)})
+    .finally(()=>{console.log('End')});
+    */
+    //coffee는 객체함수
+    //promise 실행 결과가 resolve이면 then, reject이면 catch를 받음, finally는 무조건 한번 실행됨(=default와 비슷함)
+    //resolve : 데이터 처리가 문제가 없을 때 / reject : 데이터 처리에 문제가 생겼을 때 실행
+
+    /*
+    const coffee = ()=>{
+      return new Promise((resolve, reject) => {
+        resolve('커피를 주문합니다.');
+      })
+    }
+    const order = (message) => {
+      console.log(message);
+    }
+    //인수가 하나일경우 가로 안해도 됨 but 오류 발생 가능성 있음
+    coffee()
+    .then((result)=> order(result));
+    */
+
+
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    .active {
+      text-decoration: line-through;
+      color: #999;
+    }
+    .stop {
+      width: 300px; height: 100px;
+      text-align: center;
+      line-height: 100px;
+      font-size: 20px;
+      background-color: white;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="start"></div>
+  <div class="end"></div>
+  <script>
+    const order = new Promise((resolve, reject) => {
+      let coffee = prompt('커피를 주문하세요', '아메리카노');
+      if((coffee !== null) && (coffee !== '')){
+        document.querySelector('.start').textContent = `${coffee}주문접수`;
+        setTimeout(()=>{
+          resolve(coffee);
+        },2000);
+      }
+    });//promise resolve,reject
+
+    function display(result){
+      document.querySelector('.end').textContent = `${result} 준비완료`;
+      document.querySelector('.start').classList.add('active');
+      document.querySelector('.end').classList.add('stop');
+    }
+    function showErr(err){
+      console.log(err);
+    }
+
+    order
+    .then(display)
+    .catch(showErr);
+  </script>
+</body>
+</html>
