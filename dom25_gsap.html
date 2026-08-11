@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      const box = document.querySelector('.box');
+      // gsap.to(box, 2, { 
+      //   // x: 100, 
+      //   y: 100, 
+      //   duration: 1, 
+      //   // ease: 'power 1.out'
+      //   ease: 'elastic.out'
+      // });
+      //기본적으로 객체데이터가 들어감 도착
+
+      // gsap.from(box, 3, {
+      //   opacity: 0,
+      //   y: 100
+      // });
+
+      gsap.from(box, {
+        x: -200, 
+        duration: 1,
+      })
+    });
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    .box{
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      background-color: #eee;
+      text-align: center;
+      line-height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">Test_box</div>
+</body>
+</html>

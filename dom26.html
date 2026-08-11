@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <!--gsap-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js"></script>
+  <!--user-->
+  <script src="./main_gsap.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+
+    });
+  </script>
+  <style>
+    /*---------------default_setting----------------*/
+    * {margin: 0; padding: 0;}
+    li{list-style: none;}
+    a {color: black; text-decoration: none;}
+    /*----------------------------------------------*/
+    body {height: 2000px;}
+    .header,
+    .footer {
+      width: 940px; height: 200px;
+      background-color: #ccc;
+      text-align: center;
+      line-height: 200px;
+      margin: 0 auto;
+    }
+    .footer {
+      height: 100px;
+      line-height: 100px;
+      position: absolute;
+      top: 1900px; left: calc(50% - (940px/2));
+    }
+    .btn_top {
+      width: 50px; height: 50px;
+      background-color: red;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      line-height: 50px;
+      position: fixed;
+      bottom: 100px;
+      right: 0;
+      opacity: 0;
+    }
+    .img_box,
+    .txt_box,
+    .notice_box {
+      width: 940px; height: 300px;
+      margin: 100px auto;
+      background-color: #eee;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      line-height: 300px;
+    }
+    .img_box div,
+    .txt_box div,
+    .notice_box div {
+      width: 300px; height: 300px;
+      border: 1px solid black;
+      box-sizing: border-box;
+      opacity: 0.1;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Gsap_Test</h1>
+  </header>
+  <div class="btn_top">Top</div>
+  <section class="img_box">
+    <div class="img01">img01</div>
+    <div class="img02">img02</div>
+    <div class="img03">img03</div>
+  </section>
+  <section class="txt_box">
+    <div class="txt01">txt01</div>
+    <div class="txt02">txt02</div>
+    <div class="txt03">txt03</div>
+  </section>
+  <section class="notice_box">
+    <div class="not01">notice01</div>
+    <div class="not02">notice02</div>
+    <div class="not03">notice03</div>
+  </section>
+  <footer class="footer">
+    <h3>&copy;copyright</h3>
+  </footer>
+</body>
+</html>
